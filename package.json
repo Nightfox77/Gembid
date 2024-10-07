@@ -1,5 +1,21 @@
 {
   "devDependencies": {
     "sass": "^1.79.4"
-  }
+  },
+  "scripts": {
+    "sass": "sass styles:css --watch"
+  },
+  "name": "gembid",
+  "version": "1.0.0",
+  "description": "Noroff semester project 2",
+  "main": "index.js",
+  "dependencies": {
+    "chokidar": "^4.0.1",
+    "immutable": "^4.3.7",
+    "readdirp": "^4.0.2",
+    "source-map-js": "^1.2.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
