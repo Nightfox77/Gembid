@@ -1,9 +1,11 @@
 {
   "devDependencies": {
+    "live-server": "^1.2.2",
     "sass": "^1.79.4"
   },
   "scripts": {
-    "sass": "sass styles:css --watch"
+    "sass": "sass styles:css --watch",
+    "start": "live-server"
   },
   "name": "gembid",
   "version": "1.0.0",
