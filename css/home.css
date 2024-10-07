@@ -1,17 +1,45 @@
-/* Error: expected more input.
- *   ,
- * 1 | @import 
- *   |         ^
- *   '
- *   styles\home.scss 1:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: expected more input.\a   \2577 \a 1 \2502  @import \a   \2502          ^\a   \2575 \a   styles\\home.scss 1:9  root stylesheet";
+h1 {
+  font-family: SourceSerif4;
+  color: #323232;
 }
+
+h2, .descriptiontext {
+  font-family: Lato;
+  color: #323232;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #195552;
+}
+
+.hero {
+  background-image: url(/assets/images/gembid-hero-background-mobile-2.jpg);
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+  max-width: 100%;
+}
+.hero #searchbar .form .input-group-text {
+  border-top-left-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+  border-right: 0;
+}
+.hero #searchbar .form .form-input {
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  border-left: 0;
+}
+.hero .welcome #shopBtn {
+  background-color: #FFA944;
+  font-family: Lato;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=home.css.map */

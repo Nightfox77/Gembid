@@ -1,1 +1,49 @@
 @import 'colors';
+h1 {
+    font-family: SourceSerif4;
+    color: $darkgrey;
+}
+h2, .descriptiontext {
+    font-family: Lato;
+    color: $darkgrey;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+header {
+    background-color: $forestgreen;
+}
+.hero {
+    background-image: url(/assets/images/gembid-hero-background-mobile-2.jpg);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50vh;
+    max-width: 100%;
+        
+    #searchbar .form {
+        .input-group-text {
+            border-top-left-radius: 9999px;
+            border-bottom-left-radius: 9999px;
+            border-right: 0;
+        }
+        .form-input {
+            border-top-right-radius: 9999px;
+            border-bottom-right-radius: 9999px;
+            border-left: 0;
+        }
+       
+}
+    .welcome {
+        #shopBtn {
+            background-color: $brightorange;
+            font-family: Lato;
+            font-weight: bold;
+
+            
+        }
+    }
+}
