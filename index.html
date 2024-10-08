@@ -22,11 +22,50 @@
                 <span class="material-symbols-outlined">account_circle</span>
                 <span class="material-symbols-outlined">favorite</span>
                 <span><img src="assets/images/gembid-hammer-icon.svg" width="24px" height="24px" alt="hammer icon"></span>
-                <div class="d-flex mobile-menu-icon">
-                    <span class="material-symbols-outlined ">menu</span>   
+                <div class="d-flex mobile-menu-icons">
+                    <span id="burgerMenuIcon" class="material-symbols-outlined ">menu</span>
+                    <span id="closeIcon" class="material-symbols-outlined ">close</span>   
                   </div>
             </div>
         </nav>
+        <modal id="mobileMenuOverlay" class="vh-100 w-100 bg-white d-flex flex-column justify-content-center align-items-center" >
+            <ul class="nav flex-column text-center col-11 m-0 p-0  fs-4">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Gemstones</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Minerals</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Bidding Rules</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Payment & Shipping</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link orange" href="#">Sale</a>
+                </li>
+            </ul>
+            <ul class="nav flex-column text-center border-top border-dark col-11 my-3 fs-4">
+                <li class="nav-item mt-3">
+                    <a class="nav-link" href="#">Contact & FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">How to sell</a>
+                </li>
+            </ul>
+            <div class="menuFooter d-flex flex-column row text-center justify-content-center align-items-center mt-5 gap-2">
+                <button id="loginBtn" type="button" class="btn text-white rounded-0">Login</button>
+                <a href="#" class="text-muted fs-7">Forgot your password?</a>
+                <a href="#" class="fw-bold">Not registered yet? Sign up now.</a>
+            </div>
+        </modal>
     </header>
     <main>
         <div class="hero">
@@ -50,10 +89,32 @@
             <span>Discover a fascinating selection of high-quality stones offered in exciting auctions. Immerse yourself in the world  of treasures and secure your personal piece of jewelry!</span>
         </div>
 
+        <div id="listings" class="mt-5 px-2 flex-column">
+            <h3 class="col-11">Featured listings</h3>
+            <div class="border-top border-dark">
+                <div class="tools d-flex gap-2 mt-3">
+                    <div class="filter gap-1 d-flex">
+                        <span class="material-symbols-outlined">tune</span>
+                        <p class="m-0">Filter</p>
+                    </div>
+                    <div class="itemCount gap-1 d-flex text-muted fs-6 ">
+                        <p class="itemsShown m-0 ">0000</p>
+                        <p class="m-0">Products</p>
+                    </div>
+                    <div class="sort d-flex ms-auto">
+                        <span class="material-symbols-outlined">swap_vert</span>
+                        <p class="m-0">Sort</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+       
     </main>
     <footer>
 
     </footer>
-    
+<script type="module" src="js/main.js"></script>    
 </body>
+
 </html>

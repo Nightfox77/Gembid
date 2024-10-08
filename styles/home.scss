@@ -1,11 +1,13 @@
 @import 'colors';
-h1 {
+@import 'modals';
+h1, h3 {
     font-family: SourceSerif4;
     color: $darkgrey;
 }
-h2, .descriptiontext {
+h2, .descriptiontext, a {
     font-family: Lato;
     color: $darkgrey;
+    text-decoration: none;
 }
 * {
     margin: 0;
@@ -15,6 +17,10 @@ h2, .descriptiontext {
 
 header {
     background-color: $forestgreen;
+    position: relative;
+    #closeIcon {
+        display: none;
+    }
 }
 .hero {
     background-image: url(/assets/images/gembid-hero-background-mobile-2.jpg);
@@ -23,6 +29,7 @@ header {
     background-size: cover;
     height: 50vh;
     max-width: 100%;
+    
         
     #searchbar .form {
         .input-group-text {

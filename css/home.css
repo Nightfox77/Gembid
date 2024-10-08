@@ -1,11 +1,32 @@
-h1 {
+#mobileMenuOverlay {
+  font-family: Lato;
+  position: absolute;
+  transform: translateX(-100%);
+  z-index: 1000;
+  transition: 1s all ease-in-out;
+}
+#mobileMenuOverlay .nav-link {
+  color: #323232;
+}
+#mobileMenuOverlay .orange {
+  color: #FFA944;
+}
+#mobileMenuOverlay #loginBtn {
+  background-color: #195552;
+}
+#mobileMenuOverlay .menuFooter a {
+  font-size: 11px;
+}
+
+h1, h3 {
   font-family: SourceSerif4;
   color: #323232;
 }
 
-h2, .descriptiontext {
+h2, .descriptiontext, a {
   font-family: Lato;
   color: #323232;
+  text-decoration: none;
 }
 
 * {
@@ -16,6 +37,10 @@ h2, .descriptiontext {
 
 header {
   background-color: #195552;
+  position: relative;
+}
+header #closeIcon {
+  display: none;
 }
 
 .hero {
