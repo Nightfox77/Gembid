@@ -5,6 +5,8 @@ body.addEventListener("click", function (event) {
     
     if (event.target.id === "burgerMenuIcon") {
       showMobileMenu();
+      
+
     }
     if (event.target.id === "closeIcon") {
         hideMobileMenu();

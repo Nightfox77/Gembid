@@ -1,6 +1,8 @@
 const mobileMenu = document.querySelector("#mobileMenuOverlay");
 const burgerIcon = document.querySelector("#burgerMenuIcon");
 const closeIcon = document.querySelector("#closeIcon");
+
+
 export function showMobileMenu() {
     burgerIcon.style.display = "none";
     closeIcon.style.display = "block";
@@ -9,5 +11,5 @@ export function showMobileMenu() {
 export function hideMobileMenu() {
     burgerIcon.style.display = "block";
     closeIcon.style.display = "none";
-    mobileMenu.style.transform = "translateX(-100%)";
+    mobileMenu.style.transform = "translateX(100%)";
 }

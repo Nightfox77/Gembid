@@ -1,9 +1,10 @@
 #mobileMenuOverlay {
     font-family: Lato;
-    position: absolute;
-    transform: translateX(-100%);
+    position: fixed;
+    transform: translateX(100%);
     z-index: 1000;
     transition: 1s all ease-in-out;
+    
     .nav-link {
         color: $darkgrey;
     }
