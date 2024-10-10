@@ -11,14 +11,23 @@
 #mobileMenuOverlay .orange {
   color: #FFA944;
 }
-#mobileMenuOverlay #loginBtn {
+
+#loginBtn {
   background-color: #195552;
 }
-#mobileMenuOverlay .menuFooter a {
-  font-size: 11px;
+
+#shopBtn {
+  background-color: #FFA944;
+  font-family: Lato;
+  font-weight: bold;
 }
 
-h1, h3 {
+#loadBtn {
+  border-color: #FFA944;
+  color: #FFA944;
+}
+
+h1, h3, h4, h5 {
   font-family: SourceSerif4;
   color: #323232;
 }
@@ -27,6 +36,10 @@ h2, .descriptiontext, a {
   font-family: Lato;
   color: #323232;
   text-decoration: none;
+}
+
+.fs-7 {
+  font-size: 11px;
 }
 
 * {
@@ -61,10 +74,17 @@ header #closeIcon {
   border-bottom-right-radius: 9999px;
   border-left: 0;
 }
-.hero .welcome #shopBtn {
-  background-color: #FFA944;
-  font-family: Lato;
-  font-weight: bold;
+
+.card {
+  width: 48.5%;
+  max-width: 300px;
+}
+
+#banner {
+  max-height: 500px;
+}
+#banner #bannerTextContainer {
+  background-color: #195552;
 }
 
 /*# sourceMappingURL=home.css.map */

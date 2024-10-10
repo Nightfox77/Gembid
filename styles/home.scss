@@ -1,6 +1,7 @@
 @import 'colors';
 @import 'modals';
-h1, h3 {
+@import 'buttons';
+h1, h3, h4, h5 {
     font-family: SourceSerif4;
     color: $darkgrey;
 }
@@ -9,12 +10,14 @@ h2, .descriptiontext, a {
     color: $darkgrey;
     text-decoration: none;
 }
+.fs-7 {
+    font-size: 11px;
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
 }
-
 header {
     background-color: $forestgreen;
     position: relative;
@@ -29,8 +32,6 @@ header {
     background-size: cover;
     height: 50vh;
     max-width: 100%;
-    
-        
     #searchbar .form {
         .input-group-text {
             border-top-left-radius: 9999px;
@@ -42,13 +43,16 @@ header {
             border-bottom-right-radius: 9999px;
             border-left: 0;
         }
-       
-}
-    .welcome {
-        #shopBtn {
-            background-color: $brightorange;
-            font-family: Lato;
-            font-weight: bold;
-        }
     }
 }
+.card {
+    width: 48.5%;
+    max-width: 300px;  
+}
+#banner {
+    max-height: 500px;
+    #bannerTextContainer {
+        background-color: $forestgreen;
+    }
+}
+
