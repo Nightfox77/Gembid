@@ -1,7 +1,7 @@
 @import 'colors';
 @import 'modals';
 @import 'buttons';
-h1, h3, h4, h5 {
+h1, h3, h4, h5, h6 {
     font-family: SourceSerif4;
     color: $darkgrey;
 }
@@ -9,6 +9,13 @@ h2, .descriptiontext, a {
     font-family: Lato;
     color: $darkgrey;
     text-decoration: none;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
 }
 .fs-7 {
     font-size: 11px;
@@ -45,14 +52,42 @@ header {
         }
     }
 }
-.card {
+#listingItemsContainer .card {
     width: 48.5%;
     max-width: 300px;  
 }
 #banner {
-    max-height: 500px;
+    
+    flex-direction: column;
     #bannerTextContainer {
         background-color: $forestgreen;
+        height: 200px;
+        
+    }
+    #bannerImageContainer img {
+        object-fit: cover;
+        max-height: 200px;
+    }
+    
+}
+#carouselGallery {
+    padding-left: 10px;
+    overflow-x: auto;
+    
+    .card img {
+        max-height: 500px;
+        object-fit: cover;
     }
 }
+footer {
+    background-color: $sand;
+    .listItems {
+        display: none;
+    }
+    .listItems li {
+        color: $mediumgrey;
+        font-size: 13px;
+    }
+}
+
 
