@@ -57,6 +57,10 @@ li {
   box-sizing: border-box;
 }
 
+a, .addIcon, span {
+  cursor: pointer;
+}
+
 header {
   background-color: #195552;
   position: relative;
@@ -70,7 +74,7 @@ header #closeIcon {
   background-position: left center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 50vh;
+  height: 70vh;
   max-width: 100%;
 }
 .hero #searchbar .form .input-group-text {

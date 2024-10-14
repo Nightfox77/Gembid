@@ -25,6 +25,9 @@ li {
     padding: 0;
     box-sizing: border-box; 
 }
+a, .addIcon, span {
+    cursor: pointer;
+}
 header {
     background-color: $forestgreen;
     position: relative;
@@ -37,7 +40,7 @@ header {
     background-position: left center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 50vh;
+    height: 70vh;
     max-width: 100%;
     #searchbar .form {
         .input-group-text {
@@ -88,6 +91,7 @@ footer {
         color: $mediumgrey;
         font-size: 13px;
     }
+    
 }
 
 
