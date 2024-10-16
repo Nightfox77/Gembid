@@ -8,6 +8,13 @@
 #mobileMenuOverlay .nav-link {
   color: #323232;
 }
+#mobileMenuOverlay .nav-link.orange {
+  color: #FFA944;
+}
+
+#mobileMenuOverlay.show {
+  transform: translateX(0);
+}
 
 #loginBtn {
   background-color: #195552;
@@ -68,6 +75,10 @@ header {
 }
 header #closeIcon {
   display: none;
+}
+
+.mobile-menu-icons {
+  display: flex;
 }
 
 .desktopNav {

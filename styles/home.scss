@@ -40,6 +40,9 @@ header {
         display: none;
     }
 }
+.mobile-menu-icons {
+    display: flex;
+}
 .desktopNav {
     display: none;
 }
@@ -68,23 +71,19 @@ header {
     max-width: 300px;  
 }
 #banner {
-    
     flex-direction: column;
     #bannerTextContainer {
         background-color: $forestgreen;
         height: 200px;
-        
     }
     #bannerImageContainer img {
         object-fit: cover;
         max-height: 200px;
     }
-    
 }
 #carouselGallery {
     padding-left: 10px;
     overflow-x: auto;
-    
     .card img {
         max-height: 500px;
         object-fit: cover;
@@ -95,19 +94,13 @@ footer {
     gap: 10px;
     background-color: $sand;
     padding: 20px 40px;
-    
-    
     .listItems {
         display: none;
-        
-       
     }
     .listItems li {
         color: $mediumgrey;
         font-size: 13px;
     }
-   
-    
 }
 
 @import 'media';

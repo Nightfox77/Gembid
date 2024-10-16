@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/5290b1a98f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/home.css">
+    <title>Gembid</title>
+</head>
+<body class="">
+    <header class="">
+       
+        <nav  class="navbar px-2 justify-content-space-between ">
+            <div class="navbar-brand d-flex ">
+                <a href="index.html" class="d-flex"><img src="assets/images/gembid-logo.svg" width="120px"  alt="companylogo of gembid"></a>
+            </div>
+            <div class="desktopNav">
+                <ul class="list-unstyled d-flex gap-5 ">
+                    <a href="#"><li class="text-white">Gemstones</li></a>
+                    <a href="#"><li class="text-white">Minerals</li></a>
+                    <a href="#"><li class="text-white">Bidding Rules</li></a>
+                    <a href="#"><li class="text-white">Payment & Shipping</li></a>
+                    <a href="#"><li class="orange">Sale</li></a>
+                    <a href="#"><li class="text-white border rounded border-white px-3">Sell</li></a> 
+                </ul>
+            </div>
+            <div class="icons d-flex align-items-center gap-3 text-white">
+                <span class="material-symbols-outlined">account_circle</span>
+                <span class="material-symbols-outlined">favorite</span>
+                <span><img src="assets/images/gembid-hammer-icon.svg" width="24px" height="24px" alt="hammer icon"></span>
+                <div class="mobile-menu-icons">
+                    <span id="burgerMenuIcon" class="material-symbols-outlined ">menu</span>
+                    <span id="closeIcon" class="material-symbols-outlined ">close</span>   
+                </div>
+            </div>
+        </nav>
+        <modal id="mobileMenuOverlay" class="vh-100 w-100 bg-white d-flex flex-column justify-content-center align-items-center" >
+            <ul class="nav flex-column text-center col-11 m-0 p-0  fs-4">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Gemstones</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Minerals</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Bidding Rules</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Payment & Shipping</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link orange" href="#">Sale</a>
+                </li>
+            </ul>
+            <ul class="nav flex-column text-center border-top border-dark col-11 my-3 fs-4">
+                <li class="nav-item mt-3">
+                    <a class="nav-link" href="#">Contact & FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">How to sell</a>
+                </li>
+            </ul>
+            <div class="menuFooter d-flex flex-column row text-center justify-content-center align-items-center mt-5 gap-2">
+                <button id="loginBtn" type="button" class="btn text-white rounded-0">Login</button>
+                <a href="#" class="text-muted fs-7">Forgot your password?</a>
+                <a href="#" class="fw-bold fs-7">Not registered yet? Sign up now.</a>
+            </div>
+        </modal>
+    </header>

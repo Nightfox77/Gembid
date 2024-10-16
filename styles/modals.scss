@@ -1,13 +1,18 @@
+
 #mobileMenuOverlay {
     font-family: Lato;
     position: fixed;
     transform: translateX(100%);
     z-index: 1000;
     transition: 1s all ease-in-out;
-    
-    .nav-link {
+   .nav-link {
         color: $darkgrey;
     }
-    
-    
+    .nav-link.orange {
+        color: $brightorange;
+    }
+}
+#mobileMenuOverlay.show {
+    transform: translateX(0);
+
 }

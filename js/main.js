@@ -1,17 +1,19 @@
-import { hideMobileMenu, showMobileMenu } from "./effects/mobilemenu.js";
+
 import { initIconToggle, removeIconToggle } from "./effects/footerMenu.js";
+import { loadModal } from "./effects/loadModal.js";
 const body = document.querySelector("body");
 
-body.addEventListener("click", function (event) {
-    
-    if (event.target.id === "burgerMenuIcon") {
-      showMobileMenu();
-      
 
-    }
-    if (event.target.id === "closeIcon") {
-        hideMobileMenu();
-    }
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Function to load modal content
+  
+
+  // Function to initialize modal events
+ 
+
+  // Load modal content when the page loads
+  loadModal();
 });
 
 
