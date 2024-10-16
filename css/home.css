@@ -8,9 +8,6 @@
 #mobileMenuOverlay .nav-link {
   color: #323232;
 }
-#mobileMenuOverlay .orange {
-  color: #FFA944;
-}
 
 #loginBtn {
   background-color: #195552;
@@ -61,11 +58,19 @@ a, .addIcon, span {
   cursor: pointer;
 }
 
+.orange {
+  color: #FFA944;
+}
+
 header {
   background-color: #195552;
   position: relative;
 }
 header #closeIcon {
+  display: none;
+}
+
+.desktopNav {
   display: none;
 }
 
@@ -115,7 +120,10 @@ header #closeIcon {
 }
 
 footer {
+  flex-direction: column;
+  gap: 10px;
   background-color: #F9F8F6;
+  padding: 20px 40px;
 }
 footer .listItems {
   display: none;
@@ -123,6 +131,23 @@ footer .listItems {
 footer .listItems li {
   color: #5B5E62;
   font-size: 13px;
+}
+
+@media screen and (min-width: 1100px) {
+  .desktopNav {
+    display: block;
+  }
+  .mobile-menu-icons {
+    display: none;
+  }
+  footer {
+    flex-direction: row;
+    margin: auto;
+    gap: 20px;
+  }
+  footer .listItems {
+    display: block;
+  }
 }
 
 /*# sourceMappingURL=home.css.map */

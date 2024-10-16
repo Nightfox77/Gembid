@@ -1,6 +1,8 @@
 @import 'colors';
 @import 'modals';
 @import 'buttons';
+
+
 h1, h3, h4, h5, h6 {
     font-family: SourceSerif4;
     color: $darkgrey;
@@ -28,12 +30,18 @@ li {
 a, .addIcon, span {
     cursor: pointer;
 }
+.orange {
+    color: $brightorange;
+}
 header {
     background-color: $forestgreen;
     position: relative;
     #closeIcon {
         display: none;
     }
+}
+.desktopNav {
+    display: none;
 }
 .hero {
     background-image: url(/assets/images/gembid-hero-background-mobile-2.jpg);
@@ -83,15 +91,23 @@ header {
     }
 }
 footer {
+    flex-direction: column;
+    gap: 10px;
     background-color: $sand;
+    padding: 20px 40px;
+    
+    
     .listItems {
         display: none;
+        
+       
     }
     .listItems li {
         color: $mediumgrey;
         font-size: 13px;
     }
+   
     
 }
 
-
+@import 'media';

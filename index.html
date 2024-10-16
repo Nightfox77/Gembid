@@ -15,18 +15,29 @@
 
 <body class="">
     <header class="">
-        <nav  class="mobile-nav navbar px-2 justify-content-space-between ">
+       
+        <nav  class="navbar px-2 justify-content-space-between ">
             <div class="navbar-brand d-flex ">
                 <a href="index.html" class="d-flex"><img src="assets/images/gembid-logo.svg" width="120px"  alt="companylogo of gembid"></a>
+            </div>
+            <div class="desktopNav">
+                <ul class="list-unstyled d-flex gap-5 ">
+                    <a href="#"><li class="text-white">Gemstones</li></a>
+                    <a href="#"><li class="text-white">Minerals</li></a>
+                    <a href="#"><li class="text-white">Bidding Rules</li></a>
+                    <a href="#"><li class="text-white">Payment & Shipping</li></a>
+                    <a href="#"><li class="orange">Sale</li></a>
+                    <a href="#"><li class="text-white border rounded border-white px-3">Sell</li></a> 
+                </ul>
             </div>
             <div class="icons d-flex align-items-center gap-3 text-white">
                 <span class="material-symbols-outlined">account_circle</span>
                 <span class="material-symbols-outlined">favorite</span>
                 <span><img src="assets/images/gembid-hammer-icon.svg" width="24px" height="24px" alt="hammer icon"></span>
-                <div class="d-flex mobile-menu-icons">
+                <div class="mobile-menu-icons">
                     <span id="burgerMenuIcon" class="material-symbols-outlined ">menu</span>
                     <span id="closeIcon" class="material-symbols-outlined ">close</span>   
-                  </div>
+                </div>
             </div>
         </nav>
         <modal id="mobileMenuOverlay" class="vh-100 w-100 bg-white d-flex flex-column justify-content-center align-items-center" >
@@ -69,8 +80,8 @@
         </modal>
     </header>
     <main>
-        <section class="hero d-flex flex-column ">
-            <div class="container " id="searchbar">
+        <section class="hero d-flex flex-column container gap-5 ">
+            <div class="" id="searchbar">
                 <div class="row height d-flex justify-content-center align-items-center">
                     <div class="col-12 col-md-6">
                         <div class="form input-group mt-5">
@@ -80,7 +91,7 @@
                     </div>
                 </div>
             </div>
-            <div class="welcome text-center mt-5 d-flex row m-auto flex-column mw-100">
+            <div class="welcome text-center mt-5 d-flex row justify-content-center align-items-center flex-column">
                 <h1 class="display-4 col col-md-6 p-0">Welcome to GemBid</h1>
                 <h2 class="fs-6  m-auto mt-3 col-11 col-md-6 p-0 ">Your exclusive auction platform for exquisite gemstones and minerals!</h2>
                 <button id="shopBtn" type="button" class="btn mt-5  text-white rounded-0 col-6 col-sm-2 m-auto">Shop now</button>
@@ -214,35 +225,38 @@
               </div>
         </section>
     </main>
-    <footer class="d-flex flex-column justify-content-center px-3 pt-5 ">
+    <footer class="d-flex justify-content-center pt-5 flex-wrap ">
         <ul class="d-flex flex-column mw-100 mx-2">
             <li class="border-bottom d-flex justify-content-between align-items-center ">
                 <h6 class="mb-0">Contact & FAQ</h6>
                 <span class="material-symbols-outlined addIcon">add</span>
+                <span class="material-symbols-outlined closeIcon">close</span>
             </li>
-            <ul class="listItems border-0">
+            <ul class="listItems border-0  flex-column">
                 <a href="#"><li class="">Contact form</li></a>
                 <a href="#"><li class="">FAQ</li></a>
             </ul>
         </ul>
-        <ul class="d-flex flex-column mw-100 mx-2 pt-2">
+        <ul class="d-flex flex-column mw-100 mx-2">
             <li class="border-bottom d-flex justify-content-between align-items-center ">
                 <h6 class="mb-0">About GemBid</h6>
                 <span class="material-symbols-outlined addIcon">add</span>
+                <span class="material-symbols-outlined closeIcon">close</span>
             </li>
-            <ul class="listItems border-0">
+            <ul class="listItems border-0  flex-column">
                 <a href="#"><li class="">Career</li></a>
                 <a href="#"><li class="">Press</li></a>
                 <a href="#"><li class="">Brands</li></a>
                 <a href="#"><li class="">Impressum</li></a>
             </ul>
         </ul>
-        <ul class="d-flex flex-column mw-100 mx-2 pt-2">
+        <ul class="d-flex flex-column mw-100 mx-2">
             <li class="border-bottom d-flex justify-content-between align-items-center ">
                 <h6 class="mb-0">Services</h6>
                 <span class="material-symbols-outlined addIcon">add</span>
+                <span class="material-symbols-outlined closeIcon">close</span>
             </li>
-            <ul class="listItems border-0">
+            <ul class="listItems border-0  flex-column">
                 <a href="#"><li class="">Customer Reviews</li></a>
                 <a href="#"><li class="">Gift Card</li></a>
                 <a href="#"><li class="">Track Order</li></a>
@@ -253,19 +267,20 @@
                 <a href="#"><li class="">Affiliate Dashboard</li></a>
             </ul>
         </ul>
-        <ul class="d-flex flex-column mw-100 mx-2 pt-2">
+        <ul class="d-flex flex-column mw-100 mx-2">
             <li class="border-bottom d-flex justify-content-between align-items-center ">
                 <h6 class="mb-0">How to sell</h6>
                 <span class="material-symbols-outlined addIcon">add</span>
+                <span class="material-symbols-outlined closeIcon">close</span>
             </li>
-            <ul class="listItems border-0">
+            <ul class="listItems border-0  flex-column">
                 <a href="#"><li class="">Seller Tips</li></a>
                 <a href="#"><li class="">Submission Guidelines</li></a>
                 <a href="#"><li class="">Seller Terms</li></a>
                 <a href="#"><li class="">Affiliates</li></a>
             </ul>
         </ul>
-        <ul class="d-flex flex-column m-auto text-center pt-5">
+        <ul class="d-flex w-100 flex-column  text-center pt-5">
             <li><h6 class="m-0">Follow us on</h6></li>
             <ul id="socials" class="d-flex gap-3 justify-content-center py-3">
                 <li><i class="fa-brands fa-facebook-f fa-lg"></i></li>
@@ -276,7 +291,7 @@
             <p>COPYRIGHT 2024 <span>&#169;</span> GemBid</p>
         </ul>
     </footer>
-<script type="module" src="js/main.js"></script>    
+<script type="module" src="js/main.js"></script>   
 </body>
 
 </html>
