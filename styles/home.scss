@@ -1,13 +1,14 @@
 @import 'colors';
 @import 'modals';
 @import 'buttons';
+@import 'profile';
 
 
 h1, h3, h4, h5, h6 {
     font-family: SourceSerif4;
     color: $darkgrey;
 }
-h2, .descriptiontext, a {
+h2, .descriptiontext, a, p, .btn {
     font-family: Lato;
     color: $darkgrey;
     text-decoration: none;
@@ -20,7 +21,7 @@ li {
     list-style: none;
 }
 .fs-7 {
-    font-size: 11px;
+    font-size: 13px;
 }
 * {
     margin: 0;
@@ -53,17 +54,18 @@ header {
     background-size: cover;
     height: 70vh;
     max-width: 100%;
-    #searchbar .form {
-        .input-group-text {
-            border-top-left-radius: 9999px;
-            border-bottom-left-radius: 9999px;
-            border-right: 0;
-        }
-        .form-input {
-            border-top-right-radius: 9999px;
-            border-bottom-right-radius: 9999px;
-            border-left: 0;
-        }
+    
+}
+#searchbar .form {
+    .input-group-text {
+        border-top-left-radius: 9999px;
+        border-bottom-left-radius: 9999px;
+        border-right: 0;
+    }
+    .form-input {
+        border-top-right-radius: 9999px;
+        border-bottom-right-radius: 9999px;
+        border-left: 0;
     }
 }
 #listingItemsContainer .card {
@@ -96,6 +98,7 @@ footer {
     padding: 20px 40px;
     .listItems {
         display: none;
+        padding-top: 10px;
     }
     .listItems li {
         color: $mediumgrey;

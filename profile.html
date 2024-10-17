@@ -13,7 +13,7 @@
     <title>Gembid</title>
 </head>
 <body class="">
-    <header class="">
+    <header class="" id="header">
        
         <nav  class="navbar px-2 justify-content-space-between ">
             <div class="navbar-brand d-flex ">
@@ -30,7 +30,7 @@
                 </ul>
             </div>
             <div class="icons d-flex align-items-center gap-3 text-white">
-                <span class="material-symbols-outlined">account_circle</span>
+                <a class="text-white d-flex" href="profile.html"><span id="profile" class="material-symbols-outlined">account_circle</span></a>
                 <span class="material-symbols-outlined">favorite</span>
                 <span><img src="assets/images/gembid-hammer-icon.svg" width="24px" height="24px" alt="hammer icon"></span>
                 <div class="mobile-menu-icons">
@@ -39,42 +39,188 @@
                 </div>
             </div>
         </nav>
-        <modal id="mobileMenuOverlay" class="vh-100 w-100 bg-white d-flex flex-column justify-content-center align-items-center" >
-            <ul class="nav flex-column text-center col-11 m-0 p-0  fs-4">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Gemstones</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Minerals</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Bidding Rules</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Payment & Shipping</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link orange" href="#">Sale</a>
-                </li>
-            </ul>
-            <ul class="nav flex-column text-center border-top border-dark col-11 my-3 fs-4">
-                <li class="nav-item mt-3">
-                    <a class="nav-link" href="#">Contact & FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">How to sell</a>
-                </li>
-            </ul>
-            <div class="menuFooter d-flex flex-column row text-center justify-content-center align-items-center mt-5 gap-2">
-                <button id="loginBtn" type="button" class="btn text-white rounded-0">Login</button>
-                <a href="#" class="text-muted fs-7">Forgot your password?</a>
-                <a href="#" class="fw-bold fs-7">Not registered yet? Sign up now.</a>
-            </div>
-        </modal>
+      
     </header>
+    <main>
+        <div class="container" id="searchbar">
+            <div class="row height d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-6">
+                    <div class="form input-group mt-5">
+                        <span class="input-group-text bg-white  "><img src="assets/images/gembid-glas-icon.svg" width="24px" height="24px" alt="hammer icon"></span>
+                        <input type="text" class="form-control form-input  " placeholder="Search...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id="profile" class="pt-5 mx-3">
+            <div id="profileHeader" class="border-bottom  ">
+                <h1>My GemBid</h1>
+            </div>
+            <div id="profileMenu" class="d-flex flex-wrap py-3 m-auto ">
+                <button type="button" class="btn active">Overview</button>
+                <button type="button" class="btn">Favorites</button>
+                <button type="button" class="btn">Bids</button>
+                <button type="button" class="btn">Reviews</button>
+                <button type="button" class="btn">Login Details</button>
+                <button type="button" class="btn">Messages</button>
+            </div>
+            <div>
+                <h3>Profile</h3>
+            </div>
+            <div id="profileInfo" class=" d-flex m-auto ">
+                <div id="profileInfoContainer" class="row rounded gap-3 justify-content-center align-items-center py-4 mx-0  ">
+                    <div id="userAvatar" class="col-5 d-flex  justify-content-end p-0 position-relative ">
+                        <img src="/assets/images/gembid-default-pic.jpg" class="rounded-circle " width="130px" height="130px">
+                        <div id="editIcon" class="rounded-circle d-flex m-auto justify-content-center align-items-center position-absolute green">
+                            <i class="fa-solid fa-pencil fa-large text-white"></i>
+                        </div>
+                    </div>
+                    <div id="userInfo" class=" col-6 ">
+                        <p id="userName" class="fw-bold fs-7">Seller <span class="text-decoration-underline ">Name of the user</span></p>
+                        <div class="d-flex flex-column">
+                            <p class="fw-bold m-0 fs-7">Billing address:</p>
+                            <p id="userAddress" class="m-0 fs-7">Fjordgata 15 9008 Tromsø Norway</p>
+                        </div>
+                    </div> 
+                    
+                </div>
+                <div id="balanceContainer" class="d-flex m-auto">
+                     <div id="balance" class="d-flex gap-3 justify-content-center align-items-center  pt-3">
+                        <p class="m-0">Credit Balance</p>
+                        <p id="creditBalance" class="fw-bold fs-3 m-0">$ 0000</p>
+                        <button type="button" id="addCredits" class="btn orange text-white rounded-0">Add Credits</button>
+                    </div>
+                </div>
+              
+            </div>
+        </section>
+        <section id="addAuction" class="d-flex pt-5 mx-3 justify-content-center  ">
+            <div id="addAuctionContainer" class="row rounded container-fluid justify-content-end align-items-center p-2 " >
+                <div id="addAuctionText" class="text-center col-6 col-md-5 col-lg-4  ">
+                    <p class="fw-bold text-white lead">Sell for free and securely</p>
+                    <p class="text-white fs-7">Safe on GemBid: Now you can sell privately for free - and safely with seller protection. Millions of buyers are already waiting.</p>
+                    <button type="button" id="createAuction" class="btn text-white rounded-0">Create Auction</button>
+                </div>
+
+            </div>
+        </section>
+        <section id="actives" class="mx-3 py-5">
+            <div>
+                <h3>Actives</h3>
+            </div>
+            <div id="activesCardContainer" class="row gap-5 ">
+               
+                    <div id="itemCard" class="d-flex flex-column gap-2 align-items-center col-sm-5 col-md-4 col-lg-3">
+                        <div id="itemImageContainer" class="">
+                            <img src="/assets/images/gembid-default-pic.jpg" class="mw-100  rounded" alt="product image">
+                        </div>
+                        <div id="itemInfoContainer" class="">
+                            <h4 id="itemName" class="m-0">Amethyst</h4>
+                            <p id="itemNumber " class="text-muted fs-7">Article-Nr.: 23323232</p>
+                            <p id="itemPrice" class="fw-bold fs-3">$ 2000</p>
+                            <div class="row">
+                                <p class="text-muted m-0">The offer will be extended in</p>
+                                <p id="itemTimeLeft" class="text-muted">22days 4hours</p>
+                                <p>This stunning gemstone, known for its rich purple hue, promotes calmness, balance, and clarity. Perfect for jewelry or as a decorative piece.</p>
+                            </div>
+                        </div>
+                        <div id="itemButtons" class="d-flex flex-column col-12 gap-3">
+                            <button type="button" id="editButton" class="btn col green text-white rounded-0">Edit Article</button>
+                            <button type="button" id="deleteButton" class="btn col rounded-0 border">Delete Article</button>
+                        </div>
+                    </div>
+                    <div id="itemCard" class="d-flex flex-column gap-2 align-items-center col-sm-5 col-md-4 col-lg-3">
+                        <div id="itemImageContainer" class="">
+                            <img src="/assets/images/gembid-default-pic.jpg" class="mw-100  rounded" alt="product image">
+                        </div>
+                        <div id="itemInfoContainer" class="">
+                            <h4 id="itemName" class="m-0">Amethyst</h4>
+                            <p id="itemNumber " class="text-muted fs-7">Article-Nr.: 23323232</p>
+                            <p id="itemPrice" class="fw-bold fs-3">$ 2000</p>
+                            <div class="row">
+                                <p class="text-muted m-0">The offer will be extended in</p>
+                                <p id="itemTimeLeft" class="text-muted">22days 4hours</p>
+                                <p>This stunning gemstone, known for its rich purple hue, promotes calmness, balance, and clarity. Perfect for jewelry or as a decorative piece.</p>
+                            </div>
+                        </div>
+                        <div id="itemButtons" class="d-flex flex-column col-12 gap-3">
+                            <button type="button" id="editButton" class="btn col green text-white rounded-0">Edit Article</button>
+                            <button type="button" id="deleteButton" class="btn col rounded-0 border">Delete Article</button>
+                        </div>
+                    </div>  
+                
+            </div>
+                   
+                
+        </section>
+    </main>
+    <footer class="d-flex justify-content-center pt-5 flex-wrap ">
+        <ul class="d-flex flex-column mw-100 mx-2">
+            <li class="border-bottom d-flex justify-content-between align-items-center ">
+                <h6 class="mb-0">Contact & FAQ</h6>
+                <span class="material-symbols-outlined addIcon">add</span>
+                <span class="material-symbols-outlined closeIcon">close</span>
+            </li>
+            <ul class="listItems border-0  flex-column">
+                <a href="#"><li class="">Contact form</li></a>
+                <a href="#"><li class="">FAQ</li></a>
+            </ul>
+        </ul>
+        <ul class="d-flex flex-column mw-100 mx-2">
+            <li class="border-bottom d-flex justify-content-between align-items-center ">
+                <h6 class="mb-0">About GemBid</h6>
+                <span class="material-symbols-outlined addIcon">add</span>
+                <span class="material-symbols-outlined closeIcon">close</span>
+            </li>
+            <ul class="listItems border-0  flex-column">
+                <a href="#"><li class="">Career</li></a>
+                <a href="#"><li class="">Press</li></a>
+                <a href="#"><li class="">Brands</li></a>
+                <a href="#"><li class="">Impressum</li></a>
+            </ul>
+        </ul>
+        <ul class="d-flex flex-column mw-100 mx-2">
+            <li class="border-bottom d-flex justify-content-between align-items-center ">
+                <h6 class="mb-0">Services</h6>
+                <span class="material-symbols-outlined addIcon">add</span>
+                <span class="material-symbols-outlined closeIcon">close</span>
+            </li>
+            <ul class="listItems border-0  flex-column">
+                <a href="#"><li class="">Customer Reviews</li></a>
+                <a href="#"><li class="">Gift Card</li></a>
+                <a href="#"><li class="">Track Order</li></a>
+                <a href="#"><li class="">Return & Refund Policy</li></a>
+                <a href="#"><li class="">Shipping Policy</li></a>
+                <a href="#"><li class="">Privacy Policy</li></a>
+                <a href="#"><li class="">Sitemap</li></a>
+                <a href="#"><li class="">Affiliate Dashboard</li></a>
+            </ul>
+        </ul>
+        <ul class="d-flex flex-column mw-100 mx-2">
+            <li class="border-bottom d-flex justify-content-between align-items-center ">
+                <h6 class="mb-0">How to sell</h6>
+                <span class="material-symbols-outlined addIcon">add</span>
+                <span class="material-symbols-outlined closeIcon">close</span>
+            </li>
+            <ul class="listItems border-0  flex-column">
+                <a href="#"><li class="">Seller Tips</li></a>
+                <a href="#"><li class="">Submission Guidelines</li></a>
+                <a href="#"><li class="">Seller Terms</li></a>
+                <a href="#"><li class="">Affiliates</li></a>
+            </ul>
+        </ul>
+        <ul class="d-flex w-100 flex-column  text-center pt-5">
+            <li><h6 class="m-0">Follow us on</h6></li>
+            <ul id="socials" class="d-flex gap-3 justify-content-center py-3">
+                <li><i class="fa-brands fa-facebook-f fa-lg"></i></li>
+                <li><i class="fa-brands fa-instagram fa-lg"></i></li>
+                <li><i class="fa-brands fa-pinterest-p fa-lg"></i></li>
+                <li><i class="fa-brands fa-linkedin-in fa-lg"></i></li>
+            </ul>
+            <p>COPYRIGHT 2024 <span>&#169;</span> GemBid</p>
+        </ul>
+    </footer>
+<script type="module" src="js/main.js"></script>   
+</body>
+
+</html>

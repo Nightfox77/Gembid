@@ -31,12 +31,67 @@
   color: #FFA944;
 }
 
+.green {
+  background-color: #195552;
+}
+
+#profileMenu {
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  max-width: 800px;
+}
+#profileMenu .btn {
+  font-size: 13px;
+  display: flex;
+  border-radius: 20px;
+  background-color: #F9F8F6;
+  width: 32%;
+  max-width: 200px;
+  font-weight: bold;
+  justify-content: center;
+}
+#profileMenu .active {
+  background-color: #195552;
+  color: white;
+}
+
+#profileInfo {
+  min-width: 300px;
+  max-width: 900px;
+  flex-direction: column;
+}
+#profileInfo #profileInfoContainer {
+  background-color: #F9F8F6;
+}
+#profileInfo #profileInfoContainer #userName span {
+  color: #195552;
+  font-weight: 600;
+}
+#profileInfo #profileInfoContainer #editIcon {
+  width: 50px;
+  height: 50px;
+  top: 0;
+  right: 5px;
+}
+
+#addCredits, #createAuction {
+  background-color: #FFA944;
+}
+
+#addAuctionContainer {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.5)), url("/assets/images/gembid-addauction-image.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 350px;
+}
+
 h1, h3, h4, h5, h6 {
   font-family: SourceSerif4;
   color: #323232;
 }
 
-h2, .descriptiontext, a {
+h2, .descriptiontext, a, p, .btn {
   font-family: Lato;
   color: #323232;
   text-decoration: none;
@@ -52,7 +107,7 @@ li {
 }
 
 .fs-7 {
-  font-size: 11px;
+  font-size: 13px;
 }
 
 * {
@@ -93,12 +148,13 @@ header #closeIcon {
   height: 70vh;
   max-width: 100%;
 }
-.hero #searchbar .form .input-group-text {
+
+#searchbar .form .input-group-text {
   border-top-left-radius: 9999px;
   border-bottom-left-radius: 9999px;
   border-right: 0;
 }
-.hero #searchbar .form .form-input {
+#searchbar .form .form-input {
   border-top-right-radius: 9999px;
   border-bottom-right-radius: 9999px;
   border-left: 0;
@@ -138,6 +194,7 @@ footer {
 }
 footer .listItems {
   display: none;
+  padding-top: 10px;
 }
 footer .listItems li {
   color: #5B5E62;
@@ -151,6 +208,11 @@ footer .listItems li {
   .mobile-menu-icons {
     display: none;
   }
+  .hero {
+    background-image: url(/assets/images/gembid-hero-background.jpg);
+    background-position: bottom center;
+    height: 90vh;
+  }
   footer {
     flex-direction: row;
     margin: auto;
@@ -158,6 +220,12 @@ footer .listItems li {
   }
   footer .listItems {
     display: block;
+  }
+  #profileInfo {
+    flex-direction: row;
+  }
+  #profileInfo #balance {
+    flex-direction: column;
   }
 }
 

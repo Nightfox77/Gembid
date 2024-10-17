@@ -5,6 +5,11 @@
   .mobile-menu-icons {
     display: none;
   }
+  .hero {
+    background-image: url(/assets/images/gembid-hero-background.jpg);
+    background-position: bottom center;
+    height: 90vh;
+  }
   footer {
     flex-direction: row;
     margin: auto;
@@ -12,6 +17,12 @@
   }
   footer .listItems {
     display: block;
+  }
+  #profileInfo {
+    flex-direction: row;
+  }
+  #profileInfo #balance {
+    flex-direction: column;
   }
 }
 

@@ -5,12 +5,23 @@
     .mobile-menu-icons {
         display: none;
     }
+    .hero {
+        background-image: url(/assets/images/gembid-hero-background.jpg);
+        background-position: bottom center;
+        height: 90vh;
+    }
     footer {
         flex-direction: row;
         margin: auto;
         gap: 20px;
         .listItems {
             display: block;
+        }
+    }
+    #profileInfo {
+        flex-direction: row;
+        #balance {
+            flex-direction: column;
         }
     }
 }
