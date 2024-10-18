@@ -5,22 +5,22 @@
     transform: translateX(100%);
     z-index: 1000;
     transition: 1s all ease-in-out;
-   
+    min-height: 100vh;
+    min-width: 100vw;
+    border: 0;
+    top: 50px;
+    left: 0;
+    
 
    .nav-link {
         color: $darkgrey;
     }
     .nav-link.orange {
         color: $brightorange;
-    }
+    } 
 }
 #mobileMenuOverlay.show {
-    transform: translateX(0);
-    
+    transform: translateX(0%);
+    overflow-y: auto;
 
-}
-#modalContent {
-    
-    overflow: auto;
-    height: 120vh;
 }

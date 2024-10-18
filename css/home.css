@@ -4,6 +4,11 @@
   transform: translateX(100%);
   z-index: 1000;
   transition: 1s all ease-in-out;
+  min-height: 100vh;
+  min-width: 100vw;
+  border: 0;
+  top: 50px;
+  left: 0;
 }
 #mobileMenuOverlay .nav-link {
   color: #323232;
@@ -13,12 +18,8 @@
 }
 
 #mobileMenuOverlay.show {
-  transform: translateX(0);
-}
-
-#modalContent {
-  overflow: auto;
-  height: 120vh;
+  transform: translateX(0%);
+  overflow-y: auto;
 }
 
 #loginBtn {
