@@ -3,13 +3,13 @@ const burgerIcon = document.querySelector("#burgerMenuIcon");
 const closeIcon = document.querySelector("#closeIcon");
 
 
-export function showMobileMenu() {
+function showMobileMenu() {
     document.body.style.overflow = "hidden";
     burgerIcon.style.display = "none";
     closeIcon.style.display = "block";
     
 }
-export function hideMobileMenu() {
+function hideMobileMenu() {
     document.body.style.overflow = "auto";
     burgerIcon.style.display = "block";
     closeIcon.style.display = "none";

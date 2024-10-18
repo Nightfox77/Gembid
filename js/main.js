@@ -1,35 +1,29 @@
 
 import { initIconToggle, removeIconToggle } from "./effects/footerMenu.js";
 import { loadModal } from "./effects/loadModal.js";
-const body = document.querySelector("body");
+
 
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Function to load modal content
-  
-
-  // Function to initialize modal events
  
-
-  // Load modal content when the page loads
   loadModal();
 });
 
-
+/* handles the footer menu appearence depending on the screen width */ 
 function handleResize() {
-  const width = window.innerWidth; // Get the current window width
+  const width = window.innerWidth; 
 
   if (width < 1100) {
-    // Hide all sublists when in mobile mode
+  
     const sublists = document.querySelectorAll('.listItems');
     sublists.forEach(sublist => {
-        sublist.style.display = 'none'; // Hide all sublists
+        sublist.style.display = 'none'; 
     });
-    initIconToggle(); // Initialize icons for mobile view
+    initIconToggle(); 
 
   } else {
-      removeIconToggle(); // Cleanup for desktop view
+      removeIconToggle(); 
   }
 }
 
