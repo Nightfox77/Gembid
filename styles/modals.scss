@@ -10,21 +10,18 @@
     border: none;
     top: 50px;
     left: 0;
-    
-    .nav-link:focus {
-        outline: none; 
-        border: none;
-        box-shadow: none; 
-    }
+    overflow-y: auto;
+   
    .nav-link {
         color: $darkgrey; 
     }
     .nav-link.orange {
         color: $brightorange;
     } 
+    
 }
 #mobileMenuOverlay.show {
     transform: translateX(0%);
-    overflow-y: auto;
+    
 
 }

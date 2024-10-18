@@ -24,14 +24,15 @@ export function initModalEvents() {
 
     // Show modal when button is clicked
     openButton.addEventListener('click', function () {
-      modal.showModal();
+      
+      
       modal.classList.add("show");
       showMobileMenu();
     });
 
     // Close modal when close button is clicked
     closeButton.addEventListener('click', function () {
-      modal.close();
+      
       modal.classList.remove("show");
       hideMobileMenu();
     });
@@ -39,7 +40,7 @@ export function initModalEvents() {
     // Close modal when clicking outside the modal content
     window.addEventListener('click', function (event) {
         if (event.target === modal) {
-          modal.close();
+          
           modal.classList.remove('show');
           hideMobileMenu();
         }
