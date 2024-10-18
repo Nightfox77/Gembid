@@ -7,6 +7,7 @@ function showMobileMenu() {
     document.body.style.overflow = "hidden";
     burgerIcon.style.display = "none";
     closeIcon.style.display = "block";
+
     
 }
 function hideMobileMenu() {
@@ -23,6 +24,7 @@ export function initModalEvents() {
     // Show modal when button is clicked
     openButton.addEventListener('click', function () {
       modal.classList.add('show');
+      modal.style.overflowY = "auto";
       showMobileMenu();
     });
 

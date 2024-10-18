@@ -1,12 +1,11 @@
-.dvh {
-    height: 94dvh;
-}
+
 #mobileMenuOverlay {
     font-family: Lato;
     position: fixed;
     transform: translateX(100%);
     z-index: 1000;
     transition: 1s all ease-in-out;
+
    .nav-link {
         color: $darkgrey;
     }
@@ -16,5 +15,6 @@
 }
 #mobileMenuOverlay.show {
     transform: translateX(0);
+    
 
 }
