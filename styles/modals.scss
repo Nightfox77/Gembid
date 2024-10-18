@@ -7,13 +7,17 @@
     transition: 1s all ease-in-out;
     min-height: 100vh;
     min-width: 100vw;
-    border: 0;
+    border: none;
     top: 50px;
     left: 0;
     
-
+    .nav-link:focus {
+        outline: none; 
+        border: none;
+        box-shadow: none; 
+    }
    .nav-link {
-        color: $darkgrey;
+        color: $darkgrey; 
     }
     .nav-link.orange {
         color: $brightorange;

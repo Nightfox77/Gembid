@@ -6,9 +6,14 @@
   transition: 1s all ease-in-out;
   min-height: 100vh;
   min-width: 100vw;
-  border: 0;
+  border: none;
   top: 50px;
   left: 0;
+}
+#mobileMenuOverlay .nav-link:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
 }
 #mobileMenuOverlay .nav-link {
   color: #323232;
