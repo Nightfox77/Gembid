@@ -16,6 +16,11 @@
   transform: translateX(0);
 }
 
+#modalContent {
+  overflow: auto;
+  height: 100vh;
+}
+
 #loginBtn {
   background-color: #195552;
 }

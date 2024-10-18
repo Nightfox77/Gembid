@@ -5,6 +5,7 @@
     transform: translateX(100%);
     z-index: 1000;
     transition: 1s all ease-in-out;
+   
 
    .nav-link {
         color: $darkgrey;
@@ -17,4 +18,9 @@
     transform: translateX(0);
     
 
+}
+#modalContent {
+    
+    overflow: auto;
+    height: 100vh;
 }

@@ -18,13 +18,14 @@ function hideMobileMenu() {
 }
 export function initModalEvents() {
     const modal = document.getElementById('mobileMenuOverlay');
+    
     const openButton = document.getElementById('burgerMenuIcon');
     const closeButton = document.getElementById('closeIcon');
 
     // Show modal when button is clicked
     openButton.addEventListener('click', function () {
       modal.classList.add('show');
-      modal.style.overflowY = "auto";
+     
       showMobileMenu();
     });
 
