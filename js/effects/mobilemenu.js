@@ -1,48 +1,41 @@
-
-const burgerIcon = document.querySelector("#burgerMenuIcon");
-const closeIcon = document.querySelector("#closeIcon");
+import { loadMobileMenu } from "../loadHtml/loadMobileMenuModal.js";
 
 
 
-function showMobileMenu() {
+
+
+// Function to load the modal and show it
+
+let modal; 
+export async function addModalMobileMenu() {
+    // Check if the modal hasn't been loaded yet
+    if (!modal) {
+        await loadMobileMenu(); 
+        document.body.style.overflowY = "hidden";
+    }
+  
     
-    document.body.style.overflow = "hidden";
-    burgerIcon.style.display = "none";
-    closeIcon.style.display = "block";
 }
-function hideMobileMenu() {
-    document.body.style.overflow = "auto";
-    burgerIcon.style.display = "block";
-    closeIcon.style.display = "none";
-    
+
+// Function to remove the modal and hide it
+export async function removeModal() {
+  let existingModal = modal || document.querySelector('.modaloverlay');
+  
+  if (existingModal) {
+    return new Promise((resolve) => {
+      existingModal.classList.remove('show');
+      
+      // Restore body scroll immediately
+      document.body.style.overflowY = "auto";
+
+      // Wait for the transition to end before resolving the promise
+      existingModal.addEventListener('transitionend', () => {
+        existingModal.remove();
+        modal = null; // Reset modal after removal
+        resolve(); // Resolve after the modal has been removed
+      }, { once: true }); // Ensures this eventlistener is only triggered once
+    });
+  }
 }
-export function initModalEvents() {
-    
-    const modal = document.getElementById('mobileMenuOverlay');
-    const openButton = document.getElementById('burgerMenuIcon');
-    const closeButton = document.getElementById('closeIcon');
 
-    // Show modal when button is clicked
-    openButton.addEventListener('click', function () {
-      
-      
-      modal.classList.add("show");
-      showMobileMenu();
-    });
 
-    // Close modal when close button is clicked
-    closeButton.addEventListener('click', function () {
-      
-      modal.classList.remove("show");
-      hideMobileMenu();
-    });
-
-    // Close modal when clicking outside the modal content
-    window.addEventListener('click', function (event) {
-        if (event.target === modal) {
-          
-          modal.classList.remove('show');
-          hideMobileMenu();
-        }
-    });
-}

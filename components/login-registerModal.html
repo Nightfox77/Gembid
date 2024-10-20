@@ -1,0 +1,33 @@
+<div  class="modaloverlay bg-white  d-flex flex-column  " >
+    <div class="iconContainer d-flex align-items-end justify-content-end m-5 mb-0">
+        <span  class="material-symbols-outlined d-flex fs-1 closeIcon">close</span> 
+    </div>
+  
+    <form id="loginForm" class="text-center d-flex flex-column gap-3 m-auto ">
+        <div id="formHeader" class="">
+            <h1>Already registred ?</h1>
+            <p>For the best shopping experience, please log in:</p>
+        </div>
+        <div class="d-flex flex-column gap-5 ">
+            <div class="form-group  text-start">
+                <label for="email"></label>
+                <input type="email" id="emailLogin" name="email" class="form-control" placeholder="example@noroff.no" required pattern=".+@noroff\.no">
+                <div class="valid-feedback">Looks good!</div>
+                
+            </div>
+            <div class="input-group">
+                <input type="password" id="passwordLogin" name="password" class="form-control " placeholder="Password" required minlength="8" 
+                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}" 
+                placeholder="Password (8+ chars, 1 upper, 1 number)">
+            </div>
+        </div>
+        <div class="menuFooter d-flex flex-column row text-center justify-content-center align-items-center mt-5 gap-2">
+            <button id="loginBtn" type="button" class="btn text-white rounded-0">Login</button>
+            <a href="#" class="text-muted fs-7">Forgot your password?</a>
+            <a href="#" class="fw-bold fs-7">Not registered yet? Sign up now.</a>
+        </div>
+    </form>
+   
+    
+
+</div>

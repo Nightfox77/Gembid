@@ -1,16 +1,13 @@
-
-#mobileMenuOverlay {
+.modaloverlay {
     font-family: Lato;
     position: fixed;
     transform: translateX(100%);
     z-index: 1000;
     transition: 1s all ease-in-out;
-    min-height: 100vh;
+    height: 100vh;
     min-width: 100vw;
-    border: none;
-    top: 50px;
-    left: 0;
-    overflow-y: auto;
+    top: 0;
+   
    
    .nav-link {
         color: $darkgrey; 
@@ -18,10 +15,22 @@
     .nav-link.orange {
         color: $brightorange;
     } 
-    
+    .form-control {
+    outline: none;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+    border-color: $darkgrey;
+   
 }
-#mobileMenuOverlay.show {
+     .form-control:focus {
+        outline: none;
+    }
+}
+.modaloverlay.show {
     transform: translateX(0%);
-    
+     overflow-y: auto;
+     -webkit-overflow-scrolling: touch;
 
 }
