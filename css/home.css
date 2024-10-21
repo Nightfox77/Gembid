@@ -5,7 +5,7 @@
   z-index: 1000;
   transition: 1s all ease-in-out;
   height: 100vh;
-  min-width: 100vw;
+  width: 100vw;
   top: 0;
 }
 .modaloverlay .nav-link {
@@ -32,8 +32,12 @@
   -webkit-overflow-scrolling: touch;
 }
 
-.loginBtn {
-  background-color: #195552;
+#loginForm {
+  display: flex;
+}
+
+#registerForm {
+  display: none;
 }
 
 #shopBtn {
@@ -47,8 +51,12 @@
   color: #FFA944;
 }
 
-.green {
+.bg-green {
   background-color: #195552;
+}
+
+.cl-green {
+  color: #195552;
 }
 
 #profileMenu {
@@ -242,6 +250,14 @@ footer .listItems li {
   }
   #profileInfo #balance {
     flex-direction: column;
+  }
+  .modaloverlay {
+    width: 800px;
+    transform: translateX(150%);
+    left: 50%;
+  }
+  .modaloverlay.show {
+    transform: translateX(-50%);
   }
 }
 

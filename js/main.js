@@ -7,7 +7,7 @@ import { addLoginRegisterModal } from "./effects/loginRegister.js";
 // Modal - mobileMenu
 // load and show modal- mobileMenu
 // Remove and hide Modal - mobileMenu
-
+const main = document.querySelector('main');
 document.addEventListener('click', async function(event) {
   let modal = document.querySelector('.modaloverlay');
 
@@ -18,28 +18,64 @@ document.addEventListener('click', async function(event) {
     setTimeout(() => {
       modal.classList.add('show');
     }, 50); // Small delay to ensure the transition happens smoothly
+    document.body.style.overflowY = "hidden";
+    
   }
 
   // Close the current modal and open the login modal when login button is clicked
   if (event.target.classList && event.target.classList.contains('loginBtn')) {
-    await removeModal(); // Wait for the modal to be fully removed
+    await removeModal();
 
     await addLoginRegisterModal(); // Load the login/register modal
     let newModal = document.querySelector('.modaloverlay'); // Fetch the newly added modal
-
-    // Show the login modal after it’s loaded into the DOM
-    setTimeout(() => {
-      newModal.classList.add('show'); 
+  setTimeout(() => {
+      newModal.classList.add('show');
     }, 50);
+    document.body.style.overflowY = "hidden";
   }
 
   // Close the modal when close icon or backdrop is clicked
   if (event.target.classList && event.target.classList.contains('closeIcon') || (modal && event.target === modal)) {
     await removeModal(); // Wait for the modal to be fully removed
+    main.style.filter = "blur(0)";
+  }
+
+  if (event.target.id === "showSignupModal") {
+    await removeModal();
+    await addLoginRegisterModal(); // Load the login/register modal
+
+    let newModal = document.querySelector('.modaloverlay'); // Fetch the newly added modal
+    const loginForm = document.querySelector('#loginForm');
+    const registerForm = document.querySelector('#registerForm');
+
+  setTimeout(() => {
+      newModal.classList.add('show');
+    }, 50);
+    document.body.style.overflowY = "hidden";
+    loginForm.style.display = 'none';
+    registerForm.style.display = 'flex';
+  
   }
 });
 
 
+
+
+// Togggle login / signup form
+  
+document.addEventListener('click', function (event) {
+    const loginForm = document.querySelector('#loginForm');
+    const registerForm = document.querySelector('#registerForm');
+
+  if (event.target.id === 'showLogin') {
+    registerForm.style.display = 'none';
+    loginForm.style.display = 'flex';
+  }
+  if (event.target.id === 'showSignup') {
+    loginForm.style.display = 'none';
+    registerForm.style.display = 'flex';
+  }
+})
 
 
 

@@ -11,7 +11,7 @@ export async function addModalMobileMenu() {
     // Check if the modal hasn't been loaded yet
     if (!modal) {
         await loadMobileMenu(); 
-        document.body.style.overflowY = "hidden";
+        
     }
   
     

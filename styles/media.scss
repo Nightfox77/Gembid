@@ -24,4 +24,14 @@
             flex-direction: column;
         }
     }
+    .modaloverlay {
+        width: 800px;
+        transform: translateX(150%);
+        left: 50%;
+        
+    }
+    .modaloverlay.show {
+        transform: translateX(-50%);
+    }
+    
 }
