@@ -24,7 +24,10 @@
             flex-direction: column;
         }
     }
-    .modaloverlay {
+   
+}
+@media screen and (min-width: 800px) {
+     .modaloverlay {
         width: 800px;
         transform: translateX(150%);
         left: 50%;

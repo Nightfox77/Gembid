@@ -15,7 +15,7 @@
     .nav-link.orange {
         color: $brightorange;
     } 
-    .form-control {
+    #loginForm input, #registerForm input {
     outline: none;
     border-top: 0;
     border-right: 0;
@@ -23,20 +23,25 @@
     border-radius: 0;
     border-color: $darkgrey;
    
-}
-     .form-control:focus {
-        outline: none;
     }
+    input:focus, input:active, textarea:focus, textarea:active {
+        border-color: $brightorange;
+        box-shadow: none;
+    }
+    #loginForm {
+    display: flex;
+    }
+    #registerForm {
+    display: none;
+    }
+    form {
+    width: 90%;
+    }
+   
 }
 .modaloverlay.show {
     transform: translateX(0%);
      overflow-y: auto;
      -webkit-overflow-scrolling: touch;
 
-}
-#loginForm {
-    display: flex;
-}
-#registerForm {
-    display: none;
 }

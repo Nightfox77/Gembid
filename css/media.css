@@ -24,6 +24,8 @@
   #profileInfo #balance {
     flex-direction: column;
   }
+}
+@media screen and (min-width: 800px) {
   .modaloverlay {
     width: 800px;
     transform: translateX(150%);

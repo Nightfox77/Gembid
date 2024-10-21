@@ -5,7 +5,7 @@ import { loadMobileMenu } from "../loadHtml/loadMobileMenuModal.js";
 
 
 // Function to load the modal and show it
-
+const background = document.querySelector('.backgroundblur');
 let modal; 
 export async function addModalMobileMenu() {
     // Check if the modal hasn't been loaded yet
@@ -34,6 +34,7 @@ export async function removeModal() {
         modal = null; // Reset modal after removal
         resolve(); // Resolve after the modal has been removed
       }, { once: true }); // Ensures this eventlistener is only triggered once
+      background.style.display = "none";
     });
   }
 }

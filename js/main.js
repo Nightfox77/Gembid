@@ -1,13 +1,13 @@
 import { removeModal,  addModalMobileMenu} from "./effects/mobilemenu.js"
 import { initIconToggle, removeIconToggle } from "./effects/footerMenu.js";
 import { addLoginRegisterModal } from "./effects/loginRegister.js";
+import { addAuctionModal } from "./effects/auctionForm.js";
 
 
 
 // Modal - mobileMenu
 // load and show modal- mobileMenu
 // Remove and hide Modal - mobileMenu
-const main = document.querySelector('main');
 document.addEventListener('click', async function(event) {
   let modal = document.querySelector('.modaloverlay');
 
@@ -37,7 +37,7 @@ document.addEventListener('click', async function(event) {
   // Close the modal when close icon or backdrop is clicked
   if (event.target.classList && event.target.classList.contains('closeIcon') || (modal && event.target === modal)) {
     await removeModal(); // Wait for the modal to be fully removed
-    main.style.filter = "blur(0)";
+    
   }
 
   if (event.target.id === "showSignupModal") {
@@ -55,6 +55,17 @@ document.addEventListener('click', async function(event) {
     loginForm.style.display = 'none';
     registerForm.style.display = 'flex';
   
+  }
+
+  if (event.target.id === "createAuction") {
+    await removeModal();
+
+    await addAuctionModal(); // Load the login/register modal
+    let newModal = document.querySelector('.modaloverlay'); // Fetch the newly added modal
+  setTimeout(() => {
+      newModal.classList.add('show');
+    }, 50);
+    document.body.style.overflowY = "hidden";
   }
 });
 
@@ -77,6 +88,8 @@ document.addEventListener('click', function (event) {
   }
 })
 
+
+    
 
 
 

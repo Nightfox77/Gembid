@@ -1,14 +1,11 @@
-import { loadLoginRegisterModal } from '../loadHtml/loadLoginRegisterModal.js'
+import { loadAuctionModal } from "../loadHtml/loadAuctionFormModal.js";
 const background = document.querySelector('.backgroundblur');
 let modal = document.querySelector('modaloverlay'); 
-export async function addLoginRegisterModal() {
+export async function addAuctionModal() {
     // Check if the modal hasn't been loaded yet
     if (!modal) {
-        await loadLoginRegisterModal(); 
+        await loadAuctionModal(); 
         background.style.display = "flex";
     }
-  
-   
 }
     
-

@@ -42,6 +42,15 @@ header {
         display: none;
     }
 }
+.backgroundblur {
+    display: none;
+    position: absolute;
+    min-height: 1000vh;
+    width: 100vw;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.12);
+    
+}
 .mobile-menu-icons {
     display: flex;
 }

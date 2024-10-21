@@ -14,7 +14,7 @@
 .modaloverlay .nav-link.orange {
   color: #FFA944;
 }
-.modaloverlay .form-control {
+.modaloverlay #loginForm input, .modaloverlay #registerForm input {
   outline: none;
   border-top: 0;
   border-right: 0;
@@ -22,22 +22,24 @@
   border-radius: 0;
   border-color: #323232;
 }
-.modaloverlay .form-control:focus {
-  outline: none;
+.modaloverlay input:focus, .modaloverlay input:active, .modaloverlay textarea:focus, .modaloverlay textarea:active {
+  border-color: #FFA944;
+  box-shadow: none;
+}
+.modaloverlay #loginForm {
+  display: flex;
+}
+.modaloverlay #registerForm {
+  display: none;
+}
+.modaloverlay form {
+  width: 90%;
 }
 
 .modaloverlay.show {
   transform: translateX(0%);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-}
-
-#loginForm {
-  display: flex;
-}
-
-#registerForm {
-  display: none;
 }
 
 #shopBtn {
@@ -156,6 +158,15 @@ header #closeIcon {
   display: none;
 }
 
+.backgroundblur {
+  display: none;
+  position: absolute;
+  min-height: 1000vh;
+  width: 100vw;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
 .mobile-menu-icons {
   display: flex;
 }
@@ -251,6 +262,8 @@ footer .listItems li {
   #profileInfo #balance {
     flex-direction: column;
   }
+}
+@media screen and (min-width: 800px) {
   .modaloverlay {
     width: 800px;
     transform: translateX(150%);
