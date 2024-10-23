@@ -3,7 +3,7 @@
   position: fixed;
   transform: translateX(100%);
   z-index: 1000;
-  transition: 1s all ease-in-out;
+  transition: 0.7s all ease-in-out;
   height: 100vh;
   width: 100vw;
   top: 0;
@@ -13,18 +13,6 @@
 }
 .modaloverlay .nav-link.orange {
   color: #FFA944;
-}
-.modaloverlay #loginForm input, .modaloverlay #registerForm input {
-  outline: none;
-  border-top: 0;
-  border-right: 0;
-  border-left: 0;
-  border-radius: 0;
-  border-color: #323232;
-}
-.modaloverlay input:focus, .modaloverlay input:active, .modaloverlay textarea:focus, .modaloverlay textarea:active {
-  border-color: #FFA944;
-  box-shadow: none;
 }
 .modaloverlay #loginForm {
   display: flex;
@@ -42,15 +30,49 @@
   -webkit-overflow-scrolling: touch;
 }
 
+#loginForm input, #registerForm input {
+  outline: none;
+  box-shadow: none;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+}
+
+input, textarea {
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: #323232;
+}
+
+input:focus, input:active, textarea:focus, textarea:active {
+  border-color: #FFA944 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.bidInput {
+  border: none;
+  background-color: #F0F1F5;
+  padding: 6px;
+}
+
 #shopBtn {
   background-color: #FFA944;
-  font-family: Lato;
-  font-weight: bold;
+}
+
+#shopBtn:hover {
+  background-color: #f4a141;
 }
 
 #loadBtn {
   border-color: #FFA944;
   color: #FFA944;
+}
+
+#loadBtn:hover {
+  border-color: #f4a141;
+  color: #f4a141;
 }
 
 .bg-green {
@@ -90,15 +112,14 @@
 #profileInfo #profileInfoContainer {
   background-color: #F9F8F6;
 }
-#profileInfo #profileInfoContainer #userName span {
+#profileInfo #profileInfoContainer .userName span {
   color: #195552;
   font-weight: 600;
 }
 #profileInfo #profileInfoContainer #editIcon {
-  width: 50px;
-  height: 50px;
-  top: 0;
-  right: 5px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
 }
 
 #addCredits, #createAuction {
@@ -165,6 +186,7 @@ header #closeIcon {
   width: 100vw;
   backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, 0.12);
+  z-index: 1000;
 }
 
 .mobile-menu-icons {
@@ -184,15 +206,21 @@ header #closeIcon {
   max-width: 100%;
 }
 
-#searchbar .form .input-group-text {
+#searchbar span {
   border-top-left-radius: 9999px;
   border-bottom-left-radius: 9999px;
   border-right: 0;
 }
-#searchbar .form .form-input {
+#searchbar .form-input {
   border-top-right-radius: 9999px;
   border-bottom-right-radius: 9999px;
   border-left: 0;
+}
+#searchbar .input-group {
+  transition: border-color 0.2s ease;
+}
+#searchbar .input-group:focus-within span, #searchbar .input-group:focus-within input {
+  border-color: #FFA944;
 }
 
 #listingItemsContainer .card {

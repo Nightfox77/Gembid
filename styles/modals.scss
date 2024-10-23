@@ -3,7 +3,7 @@
     position: fixed;
     transform: translateX(100%);
     z-index: 1000;
-    transition: 1s all ease-in-out;
+    transition: .7s all ease-in-out;
     height: 100vh;
     width: 100vw;
     top: 0;
@@ -15,19 +15,7 @@
     .nav-link.orange {
         color: $brightorange;
     } 
-    #loginForm input, #registerForm input {
-    outline: none;
-    border-top: 0;
-    border-right: 0;
-    border-left: 0;
-    border-radius: 0;
-    border-color: $darkgrey;
    
-    }
-    input:focus, input:active, textarea:focus, textarea:active {
-        border-color: $brightorange;
-        box-shadow: none;
-    }
     #loginForm {
     display: flex;
     }
@@ -44,4 +32,29 @@
      overflow-y: auto;
      -webkit-overflow-scrolling: touch;
 
+}
+ #loginForm input, #registerForm input {
+    outline: none;
+    box-shadow: none;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+    
+   
+}
+input, textarea {
+   box-shadow: none !important; 
+   outline: none !important;
+   border-color: $darkgrey;
+}
+input:focus, input:active, textarea:focus, textarea:active {
+        border-color: $brightorange !important;
+        box-shadow: none !important; 
+        outline: none !important;
+}
+.bidInput {
+    border: none;
+    background-color: $lightgrey;
+    padding:  6px;
 }

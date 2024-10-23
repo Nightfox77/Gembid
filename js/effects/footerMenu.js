@@ -21,7 +21,7 @@ function hideSublist(button) {
 }
 export function initIconToggle() {
     const addIcons = document.querySelectorAll('.addIcon'); 
-    const closeIcons = document.querySelectorAll('.closeIcon'); 
+    const closeIcons = document.querySelectorAll('.closeIconFooter'); 
 
     
     // Make sure addIcons are visible
@@ -44,7 +44,7 @@ export function initIconToggle() {
 // Function to remove icon toggle for desktop view
 export function removeIconToggle() {
     const addIcons = document.querySelectorAll('.addIcon'); 
-    const closeIcons = document.querySelectorAll('.closeIcon'); 
+    const closeIcons = document.querySelectorAll('.closeIconFooter'); 
     const sublists = document.querySelectorAll('.listItems'); // Get all sublists
 
     // Hide both addIcons and closeIcons in desktop mode

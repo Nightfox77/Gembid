@@ -49,6 +49,7 @@ header {
     width: 100vw;
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.12);
+    z-index: 1000;
     
 }
 .mobile-menu-icons {
@@ -66,8 +67,8 @@ header {
     max-width: 100%;
     
 }
-#searchbar .form {
-    .input-group-text {
+#searchbar  {
+    span {
         border-top-left-radius: 9999px;
         border-bottom-left-radius: 9999px;
         border-right: 0;
@@ -76,6 +77,13 @@ header {
         border-top-right-radius: 9999px;
         border-bottom-right-radius: 9999px;
         border-left: 0;
+    }
+    .input-group {
+        transition: border-color 0.2s ease; 
+    }
+    .input-group:focus-within span, .input-group:focus-within input {
+        border-color: $brightorange; 
+       
     }
 }
 #listingItemsContainer .card {

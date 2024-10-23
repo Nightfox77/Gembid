@@ -2,6 +2,7 @@ import { removeModal,  addModalMobileMenu} from "./effects/mobilemenu.js"
 import { initIconToggle, removeIconToggle } from "./effects/footerMenu.js";
 import { addLoginRegisterModal } from "./effects/loginRegister.js";
 import { addAuctionModal } from "./effects/auctionForm.js";
+import { addProductModal } from "./effects/productDetails.js";
 
 
 
@@ -56,7 +57,6 @@ document.addEventListener('click', async function(event) {
     registerForm.style.display = 'flex';
   
   }
-
   if (event.target.id === "createAuction") {
     await removeModal();
 
@@ -66,6 +66,17 @@ document.addEventListener('click', async function(event) {
       newModal.classList.add('show');
     }, 50);
     document.body.style.overflowY = "hidden";
+  }
+  if (event.target.closest('.card')) {
+    await removeModal();
+
+    await addProductModal(); // Load the login/register modal
+    let newModal = document.querySelector('.modaloverlay'); // Fetch the newly added modal
+  setTimeout(() => {
+      newModal.classList.add('show');
+    }, 50);
+    document.body.style.overflowY = "hidden";
+  
   }
 });
 

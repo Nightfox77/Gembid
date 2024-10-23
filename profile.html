@@ -27,7 +27,7 @@
                     <a href="#"><li class="text-white">Bidding Rules</li></a>
                     <a href="#"><li class="text-white">Payment & Shipping</li></a>
                     <a href="#"><li class="orange">Sale</li></a>
-                    <a href="#"><li class="text-white border rounded border-white px-3">Sell</li></a> 
+                    <a href="#"><li class="loginBtn text-white border rounded border-white px-3">Login</li></a> 
                 </ul>
             </div>
             <div class="icons d-flex align-items-center gap-3 text-white">
@@ -43,11 +43,13 @@
     </header>
     <main>
         <div class="container d-flex flex-column mw-100" >
-            <div id="searchbar" class="row  d-flex justify-content-center align-items-center">
-                <div class="col-12 col-md-6">
-                    <div class="form input-group mt-5">
-                        <span class="input-group-text bg-white  "><img src="assets/images/gembid-glas-icon.svg" width="24px" height="24px" alt="hammer icon"></span>
-                        <input type="text" class="form-control form-input  " placeholder="Search...">
+            <div class="" id="searchbar">
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col-12 col-md-6">
+                        <form class=" input-group mt-5">
+                            <span class="input-group-text bg-white  "><img src="assets/images/gembid-glas-icon.svg" width="24px" height="24px" alt="Search icon"></span>
+                            <input type="text" class="form-control form-input  " placeholder="Search...">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -69,25 +71,25 @@
             </div>
             <div id="profileInfo" class=" d-flex m-auto ">
                 <div id="profileInfoContainer" class="row rounded gap-3 justify-content-center align-items-center py-4 mx-0  ">
-                    <div id="userAvatar" class="col-5 d-flex  justify-content-end p-0 position-relative ">
+                    <div  class="userAvatar col-5 d-flex  justify-content-end p-0  ">
                         <img src="/assets/images/gembid-default-pic.jpg" class="rounded-circle " width="130px" height="130px">
-                        <div id="editIcon" class="rounded-circle d-flex m-auto justify-content-center align-items-center position-absolute bg-green">
+                        <div id="editIcon" class="rounded-circle d-flex m-auto justify-content-center align-items-center  bg-green">
                             <i class="fa-solid fa-pencil fa-large text-white"></i>
                         </div>
                     </div>
-                    <div id="userInfo" class=" col-6 ">
-                        <p id="userName" class="fw-bold fs-7">Seller <span class="text-decoration-underline cl-green ">Name of the user</span></p>
+                    <div  class="userInfo col-6 ">
+                        <p  class="userName fw-bold fs-7">Seller <span class="text-decoration-underline cl-green ">Name of the user</span></p>
                         <div class="d-flex flex-column">
                             <p class="fw-bold m-0 fs-7">Billing address:</p>
-                            <p id="userAddress" class="m-0 fs-7">Fjordgata 15 9008 Tromsø Norway</p>
+                            <p  class="userAddress m-0 fs-7">Fjordgata 15 9008 Tromsø Norway</p>
                         </div>
                     </div> 
                     
                 </div>
-                <div id="balanceContainer" class="d-flex m-auto">
-                     <div id="balance" class="d-flex gap-3 justify-content-center align-items-center  pt-3">
+                <div id="balanceContainer" class=" d-flex m-auto">
+                     <div  class="d-flex gap-3 justify-content-center align-items-center  pt-3">
                         <p class="m-0">Credit Balance</p>
-                        <p id="creditBalance" class="fw-bold fs-3 m-0">$ 0000</p>
+                        <p  class="creditBalance fw-bold fs-3 m-0">$ 0000</p>
                         <button type="button" id="addCredits" class="btn orange text-white rounded-0">Add Credits</button>
                     </div>
                 </div>
@@ -110,44 +112,26 @@
             </div>
             <div id="activesCardContainer" class="row gap-5 ">
                
-                    <div id="itemCard" class="d-flex flex-column gap-2 align-items-center col-sm-5 col-md-4 col-lg-3">
-                        <div id="itemImageContainer" class="">
+                    <div id="" class="itemCard d-flex flex-column gap-2 align-items-center col-sm-5 col-md-4 col-lg-3">
+                        <div id="" class="itemImageContainer">
                             <img src="/assets/images/gembid-default-pic.jpg" class="mw-100  rounded" alt="product image">
                         </div>
-                        <div id="itemInfoContainer" class="">
-                            <h4 id="itemName" class="m-0">Amethyst</h4>
-                            <p id="itemNumber " class="text-muted fs-7">Article-Nr.: 23323232</p>
-                            <p id="itemPrice" class="fw-bold fs-3">$ 2000</p>
+                        <div id="" class="itemInfoContainer">
+                            <h4 id="" class="itemName m-0">Amethyst</h4>
+                            <p id="" class="itemNumber text-muted fs-7">Article-Nr.: 23323232</p>
+                            <p id="" class="itemPrice fw-bold fs-3">$ 2000</p>
                             <div class="row">
                                 <p class="text-muted m-0">The offer will be extended in</p>
-                                <p id="itemTimeLeft" class="text-muted">22days 4hours</p>
+                                <p id="" class="itemTimeLeft text-muted">22days 4hours</p>
                                 <p>This stunning gemstone, known for its rich purple hue, promotes calmness, balance, and clarity. Perfect for jewelry or as a decorative piece.</p>
                             </div>
                         </div>
-                        <div id="itemButtons" class="d-flex flex-column col-12 gap-3">
-                            <button type="button" id="editButton" class="btn col bg-green text-white rounded-0">Edit Article</button>
-                            <button type="button" id="deleteButton" class="btn col rounded-0 border">Delete Article</button>
+                        <div id="" class="itemButtons d-flex flex-column col-12 gap-3">
+                            <button type="button" id="" class="editButton btn col bg-green text-white rounded-0">Edit Article</button>
+                            <button type="button" id="" class="deleteButton btn col rounded-0 border">Delete Article</button>
                         </div>
                     </div>
-                    <div id="itemCard" class="d-flex flex-column gap-2 align-items-center col-sm-5 col-md-4 col-lg-3">
-                        <div id="itemImageContainer" class="">
-                            <img src="/assets/images/gembid-default-pic.jpg" class="mw-100  rounded" alt="product image">
-                        </div>
-                        <div id="itemInfoContainer" class="">
-                            <h4 id="itemName" class="m-0">Amethyst</h4>
-                            <p id="itemNumber " class="text-muted fs-7">Article-Nr.: 23323232</p>
-                            <p id="itemPrice" class="fw-bold fs-3">$ 2000</p>
-                            <div class="row">
-                                <p class="text-muted m-0">The offer will be extended in</p>
-                                <p id="itemTimeLeft" class="text-muted">22days 4hours</p>
-                                <p>This stunning gemstone, known for its rich purple hue, promotes calmness, balance, and clarity. Perfect for jewelry or as a decorative piece.</p>
-                            </div>
-                        </div>
-                        <div id="itemButtons" class="d-flex flex-column col-12 gap-3">
-                            <button type="button" id="editButton" class="btn col bg-green text-white rounded-0">Edit Article</button>
-                            <button type="button" id="deleteButton" class="btn col rounded-0 border">Delete Article</button>
-                        </div>
-                    </div>  
+                   
                 
             </div>
                    
@@ -159,7 +143,7 @@
             <li class="border-bottom d-flex justify-content-between align-items-center ">
                 <h6 class="mb-0">Contact & FAQ</h6>
                 <span class="material-symbols-outlined addIcon">add</span>
-                <span class="material-symbols-outlined closeIcon">close</span>
+                <span class="material-symbols-outlined closeIconFooter">close</span>
             </li>
             <ul class="listItems border-0  flex-column">
                 <a href="#"><li class="">Contact form</li></a>
@@ -170,7 +154,7 @@
             <li class="border-bottom d-flex justify-content-between align-items-center ">
                 <h6 class="mb-0">About GemBid</h6>
                 <span class="material-symbols-outlined addIcon">add</span>
-                <span class="material-symbols-outlined closeIcon">close</span>
+                <span class="material-symbols-outlined closeIconFooter">close</span>
             </li>
             <ul class="listItems border-0  flex-column">
                 <a href="#"><li class="">Career</li></a>
@@ -183,7 +167,7 @@
             <li class="border-bottom d-flex justify-content-between align-items-center ">
                 <h6 class="mb-0">Services</h6>
                 <span class="material-symbols-outlined addIcon">add</span>
-                <span class="material-symbols-outlined closeIcon">close</span>
+                <span class="material-symbols-outlined closeIconFooter">close</span>
             </li>
             <ul class="listItems border-0  flex-column">
                 <a href="#"><li class="">Customer Reviews</li></a>
@@ -200,7 +184,7 @@
             <li class="border-bottom d-flex justify-content-between align-items-center ">
                 <h6 class="mb-0">How to sell</h6>
                 <span class="material-symbols-outlined addIcon">add</span>
-                <span class="material-symbols-outlined closeIcon">close</span>
+                <span class="material-symbols-outlined closeIconFooter">close</span>
             </li>
             <ul class="listItems border-0  flex-column">
                 <a href="#"><li class="">Seller Tips</li></a>

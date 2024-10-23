@@ -1,10 +1,15 @@
 
 #shopBtn {
     background-color: $brightorange;
-    font-family: Lato;
-    font-weight: bold;
+}
+#shopBtn:hover {
+    background-color: $hoverorange;
 }
 #loadBtn {
     border-color: $brightorange;
     color: $brightorange;
+}
+#loadBtn:hover {
+    border-color: $hoverorange;
+    color: $hoverorange;
 }
