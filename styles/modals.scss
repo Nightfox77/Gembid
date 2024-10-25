@@ -58,3 +58,24 @@ input:focus, input:active, textarea:focus, textarea:active {
     background-color: $lightgrey;
     padding:  6px;
 }
+.toastalert {
+    position: absolute;
+    display: none;
+    border: 2px solid;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    min-width: 300px;
+    max-width: 500px;
+    background-color: $sand;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+ .success {
+        border-color: green;
+    }
+    
+    .error {
+        border-color: red;
+    }

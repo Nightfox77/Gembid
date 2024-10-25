@@ -3,6 +3,8 @@ import { initIconToggle, removeIconToggle } from "./effects/footerMenu.js";
 import { addLoginRegisterModal } from "./effects/loginRegister.js";
 import { addAuctionModal } from "./effects/auctionForm.js";
 import { addProductModal } from "./effects/productDetails.js";
+import { registerUser } from "./auth/register.js";
+import { loginUser } from "./auth/login.js";
 
 
 
@@ -129,3 +131,29 @@ window.addEventListener('resize', handleResize);
 
 
 handleResize();
+
+
+// Registration/Login
+// Handles registration/login process 
+document.addEventListener("submit", async function(event) {
+  const registerForm = event.target.closest("#registerForm");
+  const loginForm = event.target.closest("#loginForm");
+
+
+  if (registerForm) {
+    event.preventDefault();
+      
+      
+      await registerUser();
+  }
+  
+  if (loginForm) {
+    event.preventDefault();
+      
+      
+      await loginUser();
+  }
+});
+
+
+
