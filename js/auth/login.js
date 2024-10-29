@@ -1,6 +1,8 @@
 import { API_Login } from "../constants/constants.js";
 import { showSuccessToast, showErrorToast } from "../effects/toasts.js";
 import { removeModal } from "../effects/mobilemenu.js";
+import { save } from "../constants/constants.js";
+import { getAPIKey } from "../Api/getapiKey.js";
 
 
 export async function loginUser() { 
@@ -27,7 +29,14 @@ export async function loginUser() {
       if (response.ok) {
        await  removeModal();
        showSuccessToast("Login successful!");
-        
+        save("token", result.data.accessToken);
+        save("email", result.data.email);
+        save("name", result.data.name);
+        const userImage = result.data.avatar;
+        save("userImage", userImage.url);
+        save("status", "logged in")
+        await getAPIKey();
+        window
          
         
           
@@ -36,7 +45,6 @@ export async function loginUser() {
         result.errors.forEach(err => {
             errorMessage += err.message + ' ';
         })
-        console.log(result);
         await removeModal();
         showErrorToast( errorMessage || 'Registration failed', false);
         

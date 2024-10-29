@@ -31,9 +31,10 @@
                 </ul>
             </div>
             <div class="icons d-flex align-items-center gap-3 text-white">
-                <div class="text-white d-flex" ><span id="profile" class="material-symbols-outlined">account_circle</span></div>
+                <a href="" id="profileLink" class="text-white d-flex" ></a>
                 <span class="material-symbols-outlined">favorite</span>
                 <span><img src="assets/images/gembid-hammer-icon.svg" width="24px" height="24px" alt="hammer icon"></span>
+                <span id="logout" class="material-symbols-outlined">logout</span>
                 <div class="mobile-menu-icons">
                     <span id="burgerMenuIcon" class="material-symbols-outlined ">menu</span>
                 </div>
@@ -72,13 +73,13 @@
             <div id="profileInfo" class=" d-flex m-auto ">
                 <div id="profileInfoContainer" class="row rounded gap-3 justify-content-center align-items-center py-4 mx-0  ">
                     <div  class="userAvatar col-5 d-flex  justify-content-end p-0  ">
-                        <img src="/assets/images/gembid-default-pic.jpg" class="rounded-circle " width="130px" height="130px">
+                        <img id="userImage" src="" class="rounded-circle " width="130px" height="130px">
                         <div id="editIcon" class="rounded-circle d-flex m-auto justify-content-center align-items-center  bg-green">
                             <i class="fa-solid fa-pencil fa-large text-white"></i>
                         </div>
                     </div>
                     <div  class="userInfo col-6 ">
-                        <p  class="userName fw-bold fs-7">Seller <span class="text-decoration-underline cl-green ">Name of the user</span></p>
+                        <p  class="userName fw-bold fs-7">Seller <span id="userName" class="text-decoration-underline cl-green "></span></p>
                         <div class="d-flex flex-column">
                             <p class="fw-bold m-0 fs-7">Billing address:</p>
                             <p  class="userAddress m-0 fs-7">Fjordgata 15 9008 Tromsø Norway</p>
@@ -89,7 +90,7 @@
                 <div id="balanceContainer" class=" d-flex m-auto">
                      <div  class="d-flex gap-3 justify-content-center align-items-center  pt-3">
                         <p class="m-0">Credit Balance</p>
-                        <p  class="creditBalance fw-bold fs-3 m-0">$ 0000</p>
+                        <p id="creditBalance"  class="creditBalance fw-bold fs-3 m-0">$</p>
                         <button type="button" id="addCredits" class="btn orange text-white rounded-0">Add Credits</button>
                     </div>
                 </div>
@@ -204,6 +205,9 @@
             <p>COPYRIGHT 2024 <span>&#169;</span> GemBid</p>
         </ul>
     </footer>
+    <div class="toastalert rounded ">
+        <p class="message"></p>
+    </div>
 <script type="module" src="js/main.js"></script>   
 </body>
 

@@ -88,7 +88,18 @@ header {
 }
 #listingItemsContainer .card {
     width: 48.5%;
-    max-width: 300px;  
+    max-width: 300px; 
+    img {
+        object-fit: cover;
+        height: 200px;
+    }
+    .card-title {
+        height: 50px;
+    }
+    .card-text {
+        max-height: 100px;
+        overflow: hidden;
+    }
 }
 #banner {
     flex-direction: column;

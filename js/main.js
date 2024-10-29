@@ -1,85 +1,22 @@
-import { removeModal,  addModalMobileMenu} from "./effects/mobilemenu.js"
+
 import { initIconToggle, removeIconToggle } from "./effects/footerMenu.js";
-import { addLoginRegisterModal } from "./effects/loginRegister.js";
-import { addAuctionModal } from "./effects/auctionForm.js";
-import { addProductModal } from "./effects/productDetails.js";
+import { showModal} from "./modal/showModal.js";
 import { registerUser } from "./auth/register.js";
 import { loginUser } from "./auth/login.js";
+import { displayListings } from "./Api/getAllListings.js";
+import { bidButtonToggle } from "./effects/hover.js";
+import { load } from "./constants/constants.js";
+import { loadProfile } from "./Api/getUserProfile.js";
+import { showSuccessToast } from "./effects/toasts.js";
 
 
+const body = document.querySelector("body");
+// Modals
+// Handles which modal is displayed
 
-// Modal - mobileMenu
-// load and show modal- mobileMenu
-// Remove and hide Modal - mobileMenu
-document.addEventListener('click', async function(event) {
-  let modal = document.querySelector('.modaloverlay');
-
-  // Open the mobile menu modal when burger icon is clicked
-  if (event.target.id === 'burgerMenuIcon') { 
-    await addModalMobileMenu();
-    modal = document.querySelector('.modaloverlay'); // Make sure we get the new modal
-    setTimeout(() => {
-      modal.classList.add('show');
-    }, 50); // Small delay to ensure the transition happens smoothly
-    document.body.style.overflowY = "hidden";
-    
-  }
-
-  // Close the current modal and open the login modal when login button is clicked
-  if (event.target.classList && event.target.classList.contains('loginBtn')) {
-    await removeModal();
-
-    await addLoginRegisterModal(); // Load the login/register modal
-    let newModal = document.querySelector('.modaloverlay'); // Fetch the newly added modal
-  setTimeout(() => {
-      newModal.classList.add('show');
-    }, 50);
-    document.body.style.overflowY = "hidden";
-  }
-
-  // Close the modal when close icon or backdrop is clicked
-  if (event.target.classList && event.target.classList.contains('closeIcon') || (modal && event.target === modal)) {
-    await removeModal(); // Wait for the modal to be fully removed
-    
-  }
-
-  if (event.target.id === "showSignupModal") {
-    await removeModal();
-    await addLoginRegisterModal(); // Load the login/register modal
-
-    let newModal = document.querySelector('.modaloverlay'); // Fetch the newly added modal
-    const loginForm = document.querySelector('#loginForm');
-    const registerForm = document.querySelector('#registerForm');
-
-  setTimeout(() => {
-      newModal.classList.add('show');
-    }, 50);
-    document.body.style.overflowY = "hidden";
-    loginForm.style.display = 'none';
-    registerForm.style.display = 'flex';
-  
-  }
-  if (event.target.id === "createAuction") {
-    await removeModal();
-
-    await addAuctionModal(); // Load the login/register modal
-    let newModal = document.querySelector('.modaloverlay'); // Fetch the newly added modal
-  setTimeout(() => {
-      newModal.classList.add('show');
-    }, 50);
-    document.body.style.overflowY = "hidden";
-  }
-  if (event.target.closest('.card')) {
-    await removeModal();
-
-    await addProductModal(); // Load the login/register modal
-    let newModal = document.querySelector('.modaloverlay'); // Fetch the newly added modal
-  setTimeout(() => {
-      newModal.classList.add('show');
-    }, 50);
-    document.body.style.overflowY = "hidden";
-  
-  }
+document.addEventListener('click', function(event) {
+  showModal(event);
+ 
 });
 
 
@@ -87,7 +24,7 @@ document.addEventListener('click', async function(event) {
 
 // Togggle login / signup form
   
-document.addEventListener('click', function (event) {
+document.addEventListener('click', async function (event) {
     const loginForm = document.querySelector('#loginForm');
     const registerForm = document.querySelector('#registerForm');
 
@@ -99,10 +36,27 @@ document.addEventListener('click', function (event) {
     loginForm.style.display = 'none';
     registerForm.style.display = 'flex';
   }
+  if ( event.target.id === 'logout') {
+    const status = load("status");
+    if(status === "logged in") {
+      localStorage.clear();
+      await showSuccessToast('Your now logged out');
+      window.location.href = '/index.html';
+    }
+  }
+
+  
 })
 
+body.addEventListener('mouseover', function (event) {
+  const bidButton = document.getElementById('bidBtn'); // Get button reference
 
-    
+  if (event.target === bidButton) { // Check if the hovered element is the button
+       // Log for testing
+      bidButtonToggle();
+     
+  }
+});
 
 
 
@@ -146,14 +100,63 @@ document.addEventListener("submit", async function(event) {
       
       await registerUser();
   }
-  
+
   if (loginForm) {
     event.preventDefault();
       
       
       await loginUser();
+      window.location.href = '/profile.html';
   }
 });
+ 
+
+  async function triggerFunctionOnPageLoad() {
+    const currentPage = window.location.pathname;
+    const key = load('key');
+    let avatar = load('userImage');
+    if (!avatar) {
+
+    }
+    const profileIconContainer = document.getElementById('profileLink');
+   
+    if (currentPage === '/index.html') { 
+         await displayListings();
+    }
+    if (currentPage === '/index.html' || currentPage === '/profile.html') {
+      if (key && avatar) {
+        profileIconContainer.innerHTML = '';
+        profileIconContainer.setAttribute("href", "/profile.html");
+        profileIconContainer.innerHTML += `<img src=${avatar} class="rounded-circle" width="24px" height="24px">`;
+      } else if (key) {
+        profileIconContainer.innerHTML = '';
+        profileIconContainer.setAttribute("href", "/profile.html");
+        profileIconContainer.innerHTML += `<img src="/assets/images/gembid-default-pic.jpg" class="rounded-circle" width="24px" height="24px">`;
+      
+      } else {
+        profileIconContainer.innerHTML = '';
+        profileIconContainer.innerHTML +=  `<span  class="material-symbols-outlined">account_circle</span>`;
+      }
+    }
+    if (currentPage === '/profile.html' && key) {
+      
+      const profileData = await loadProfile();
+      console.log(profileData);
+      const userName = document.getElementById('userName');
+      const userAvatar = document.getElementById('userImage'); 
+      userName.innerHTML = load("name");
+      userAvatar.setAttribute("src", profileData.avatar.url);
+      if(!profileData.avatar) {
+        userAvatar.setAttribute("src", "/assets/images/gembid-default-pic.jpg");
+      } 
+      const userBalance = document.getElementById('creditBalance');
+      userBalance.innerHTML += profileData.credits; 
+    }
+}
+window.addEventListener('load', triggerFunctionOnPageLoad);
 
 
+  
 
+
+    

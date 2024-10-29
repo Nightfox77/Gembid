@@ -1,15 +1,22 @@
-
+#bidBtn {
+  pointer-events: none;
+  opacity: .5;
+    
+}
 #shopBtn {
     background-color: $brightorange;
 }
 #shopBtn:hover {
     background-color: $hoverorange;
 }
-#loadBtn {
+#loadBtn, #upBtn {
     border-color: $brightorange;
     color: $brightorange;
 }
-#loadBtn:hover {
+#loadBtn:hover, #upBtn:hover {
     border-color: $hoverorange;
     color: $hoverorange;
+}
+#upBtn {
+    display: none;
 }

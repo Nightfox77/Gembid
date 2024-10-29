@@ -27,7 +27,7 @@
 }
 @media screen and (min-width: 800px) {
   .modaloverlay {
-    width: 800px;
+    width: 600px;
     transform: translateX(150%);
     left: 50%;
   }

@@ -6,12 +6,14 @@
  const Listings = `/listings`;
  const Profiles = `/profiles`;
  const Search = `/search`;
+ const Key = '/create-api-key';
 
 export const API_Signup = Base + Auth + Register;
 export const API_Login = Base + Auth + Login;
 export const API_Listings = Base + Auction + Listings;
-export const API_Profiles = Base + Auction + Profiles;
+export const API_Profiles = Base  + Auction + Profiles;
 export const API_Search = Base + Auction + Listings + Search;
+export const API_GetKey = Base + Auth + Key;
 
 
 export function save(key, value) {
@@ -31,3 +33,4 @@ export function load(key) {
 export function remove(key) {
     localStorage.removeItem(key)
 }
+

@@ -80,6 +80,11 @@ input:focus, input:active, textarea:focus, textarea:active {
   border-color: red;
 }
 
+#bidBtn {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 #shopBtn {
   background-color: #FFA944;
 }
@@ -88,14 +93,18 @@ input:focus, input:active, textarea:focus, textarea:active {
   background-color: #f4a141;
 }
 
-#loadBtn {
+#loadBtn, #upBtn {
   border-color: #FFA944;
   color: #FFA944;
 }
 
-#loadBtn:hover {
+#loadBtn:hover, #upBtn:hover {
   border-color: #f4a141;
   color: #f4a141;
+}
+
+#upBtn {
+  display: none;
 }
 
 .bg-green {
@@ -250,6 +259,17 @@ header #closeIcon {
   width: 48.5%;
   max-width: 300px;
 }
+#listingItemsContainer .card img {
+  object-fit: cover;
+  height: 200px;
+}
+#listingItemsContainer .card .card-title {
+  height: 50px;
+}
+#listingItemsContainer .card .card-text {
+  max-height: 100px;
+  overflow: hidden;
+}
 
 #banner {
   flex-direction: column;
@@ -316,7 +336,7 @@ footer .listItems li {
 }
 @media screen and (min-width: 800px) {
   .modaloverlay {
-    width: 800px;
+    width: 600px;
     transform: translateX(150%);
     left: 50%;
   }
