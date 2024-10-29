@@ -120,9 +120,10 @@ document.addEventListener("submit", async function(event) {
     }
     const profileIconContainer = document.getElementById('profileLink');
    
-    if (currentPage === '/index.html') { 
-         await displayListings();
-    }
+    if (currentPage === '/' || currentPage === '/index.html') {
+      
+      await displayListings();
+  }
     if (currentPage === '/index.html' || currentPage === '/profile.html') {
       if (key && avatar) {
         profileIconContainer.innerHTML = '';
