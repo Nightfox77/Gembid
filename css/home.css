@@ -80,6 +80,22 @@ input:focus, input:active, textarea:focus, textarea:active {
   border-color: red;
 }
 
+.list-group-item {
+  display: flex;
+  gap: 5px;
+}
+.list-group-item::before {
+  width: 20px;
+  margin-right: 5px;
+  content: counter(list-item) ". ";
+  counter-increment: list-item;
+}
+.list-group-item img {
+  width: 24px;
+  height: 24px;
+  border-radius: 20px;
+}
+
 #bidBtn {
   pointer-events: none;
   opacity: 0.5;

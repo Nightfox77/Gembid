@@ -1,7 +1,7 @@
 import { addAuctionModal } from "../effects/auctionForm.js";
 import { addLoginRegisterModal } from "../effects/loginRegister.js";
 import { addModalMobileMenu, removeModal } from "../effects/mobilemenu.js";
-import { displaySingleLisiting } from "../Api/getSingleListing.js";
+import { displaySingleListing } from "../Api/getSingleListing.js";
 import { save, load } from "../constants/constants.js";
 import { addProductModal } from "../effects/productDetails.js";
 import { showErrorToast } from "../effects/toasts.js";
@@ -69,13 +69,12 @@ export async function showModal(event) {
      // Call the function to display the single listing by ID
     await addProductModal();
     let modal = document.querySelector(".modaloverlay");
-    const cardHTML = await displaySingleLisiting();
-    modal.innerHTML += cardHTML; 
+    modal.innerHTML += await displaySingleListing(); 
     addShowClass();
    
 }
   
-    // Call this function to add the "show" class for visibility or animation
+    
 
 
 }

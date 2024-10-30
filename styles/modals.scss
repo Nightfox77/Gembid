@@ -79,3 +79,18 @@ input:focus, input:active, textarea:focus, textarea:active {
     .error {
         border-color: red;
     }
+.list-group-item {
+    display: flex;
+    gap: 5px;
+    &::before {
+        width: 20px; // Width of the number space
+        margin-right: 5px; // Space between the number and content
+        content: counter(list-item) ". "; // Ensure numbers appear correctly
+        counter-increment: list-item; // Increment counter for each list item
+    }
+    img {
+        width: 24px;
+        height: 24px;
+        border-radius: 20px;
+    }   
+} 

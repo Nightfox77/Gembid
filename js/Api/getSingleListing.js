@@ -28,7 +28,7 @@ async function getSingleListing() {
     }
 }
 
-export async function displaySingleLisiting() {
+export async function displaySingleListing() {
     const item = await getSingleListing();
     let userImage = "";
     let userText = item.description || ""; // Default to an empty string if `description` is null or empty
@@ -44,12 +44,23 @@ export async function displaySingleLisiting() {
     const endsAtDate = new Date(item.endsAt);
     let timeStatus = "";
     if (endsAtDate < currentDate) {
-        timeStatus = `<p class="timeLeft text-danger fw-bold ">Ended</p>`;
+        timeStatus = `<p class="timeLeft text-danger fw-bold ">Ended:  ${endsAtDate.toLocaleString()}</p>`;
     } else {
         timeStatus = `<p class="timeLeft text-muted ">Ends at: ${endsAtDate.toLocaleString()}</p>`;
-    }
-    
-    const cardHTML =  `<div class="productDetails  d-flex flex-column  m-auto  ">
+    } 
+
+
+
+    const bidsList = item.bids || [];
+    const highestBid = bidsList.length > 0 ? bidsList[bidsList.length - 1].amount : 0;
+    const minimumBid = highestBid + 1;
+      const bidsHTML = bidsList.length > 0
+        ? bidsList.map(bid => `
+            <li class="list-group-item">${userImage}<strong> ${bid.bidder.name}</strong>: $ ${bid.amount} on ${new Date(bid.created).toLocaleDateString()}</li>
+            `).join('')
+        : `<li class="list-group-item text-muted">No bids have been placed.</li>`;
+
+    let cardHTML =  `<div class="productDetails  d-flex flex-column  m-auto  ">
         
     <div class="d-flex flex-column gap-3  ">
     <div  class="productHeader">
@@ -67,19 +78,18 @@ export async function displaySingleLisiting() {
         </div>
         <div class="bidsHistory">
             <p class="lead fw-bold border border-top-0 border-bottom-1 border-start-0 border-end-0 border-dark">Bids history</p>
-        </div>
-        
-    </div>
-    <form class="menuFooter d-flex flex-column text-center justify-content-center align-items-center gap-3 my-5 " method="post">
-        <p class="gap-2 d-flex align-items-center" >Minimum Bid <span class="minimunBid fw-bold lead"> $ 0000</span></p>
-        <input type="number" class="bidInput w-50 text-center" placeholder="Enter Your Bid Here">
-        <button id="bidBtn" type="submit" class="btn w-50 bg-green text-white d-flex justify-content-center align-items-center gap-2 rounded-0">Place Bid<img src="/assets/images/gembid-hammer-icon.svg" width="20px" height="20px"</button>
-    </form>
-</div>
-</div>`
- 
-    
-  return cardHTML;  
-};
+            <ol class="bids list-group list-group-numbered list-group-flush">
+                ${bidsHTML}
 
- 
+                </ol>
+            </div>
+            <form class="menuFooter d-flex flex-column text-center justify-content-center align-items-center gap-3 my-5" method="post">
+                <p class="gap-2 d-flex align-items-center">Minimum Bid <span class="minimunBid fw-bold lead"> $ ${minimumBid}</span></p>
+                <input type="number" class="bidInput w-50 text-center" placeholder="Enter Your Bid Here" min="${minimumBid}" required>
+                <button id="bidBtn" type="submit" class="btn w-50 bg-green text-white d-flex justify-content-center align-items-center gap-2 rounded-0">Place Bid<img src="/assets/images/gembid-hammer-icon.svg" width="20px" height="20px"></button>
+            </form>
+            </div>
+                     `;
+
+    return cardHTML;
+}
