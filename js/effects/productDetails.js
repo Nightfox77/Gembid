@@ -9,7 +9,7 @@ export async function addProductModal() {
         
         await loadDetailModal(); 
        
-        modal 
+        
         background.style.display = "flex";
         
     }

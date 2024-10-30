@@ -44,23 +44,25 @@ document.addEventListener('click', async function (event) {
       window.location.href = '/index.html';
     }
   }
+  if (event.target.id === 'bidBtn') {
+      const bidinput = document.querySelector(".bidInput");
+      save('amount', bidinput.value);
+  }
 
   
 })
 
-body.addEventListener('mouseover', function (event) {
-  const bidButton = document.getElementById('bidBtn'); // Get button reference
 
-  if (event.target === bidButton) { // Check if the hovered element is the button
-       // Log for testing
-      bidButtonToggle();
-     
+
+
+
+body.addEventListener('submit', function (event) {
+  const bidForm = document.querySelector('.placeBid'); 
+
+  if (event.target === bidForm) { 
+    
   }
-});
-
-
-
-
+})
 
 // Footer
 // handles the footer menu appearence depending on the screen width //
