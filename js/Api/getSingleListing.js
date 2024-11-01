@@ -1,5 +1,5 @@
 
-import { load, API_Listings } from "../constants/constants.js";
+import { load, API_Listings, save } from "../constants/constants.js";
 
 
 
@@ -44,9 +44,11 @@ export async function displaySingleListing() {
     const endsAtDate = new Date(item.endsAt);
     let timeStatus = "";
     if (endsAtDate < currentDate) {
-        timeStatus = `<p class="timeLeft ended text-danger fw-bold ">Ended:  ${endsAtDate.toLocaleString()}</p>`;
+        timeStatus = `<p class="timeLeft text-danger fw-bold ">Ended:  ${endsAtDate.toLocaleString()}</p>`;
+        save("auction", "ended");
     } else {
-        timeStatus = `<p class="timeLeft active  text-muted ">Ends at: ${endsAtDate.toLocaleString()}</p>`;
+        timeStatus = `<p class="timeLeft  text-muted ">Ends at: ${endsAtDate.toLocaleString()}</p>`;
+        save("auction", "active");
     } 
 
 

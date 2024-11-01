@@ -4,13 +4,15 @@ import { showModal} from "./modal/showModal.js";
 import { registerUser } from "./auth/register.js";
 import { loginUser } from "./auth/login.js";
 import { displayListings } from "./Api/getAllListings.js";
-import { bidButtonToggle } from "./effects/hover.js";
-import { load } from "./constants/constants.js";
+import { placeBid } from "./Api/placeBid.js";
+import { load,save } from "./constants/constants.js";
 import { loadProfile } from "./Api/getUserProfile.js";
 import { showSuccessToast } from "./effects/toasts.js";
+import { createListing } from "./Api/createListing.js";
 
 
-const body = document.querySelector("body");
+
+
 // Modals
 // Handles which modal is displayed
 
@@ -41,7 +43,9 @@ document.addEventListener('click', async function (event) {
     if(status === "logged in") {
       localStorage.clear();
       await showSuccessToast('Your now logged out');
-      window.location.href = '/index.html';
+      setTimeout(() => {
+        window.location.href = '/index.html';
+    }, 2000); 
     }
   }
   if (event.target.id === 'bidBtn') {
@@ -50,18 +54,6 @@ document.addEventListener('click', async function (event) {
   }
 
   
-})
-
-
-
-
-
-body.addEventListener('submit', function (event) {
-  const bidForm = document.querySelector('.placeBid'); 
-
-  if (event.target === bidForm) { 
-    
-  }
 })
 
 // Footer
@@ -94,6 +86,8 @@ handleResize();
 document.addEventListener("submit", async function(event) {
   const registerForm = event.target.closest("#registerForm");
   const loginForm = event.target.closest("#loginForm");
+  const bidForm = document.querySelector('.placeBid'); 
+  const auctionForm = document.querySelector("#auctionForm");
 
 
   if (registerForm) {
@@ -109,6 +103,14 @@ document.addEventListener("submit", async function(event) {
       
       await loginUser();
       window.location.href = '/profile.html';
+  }
+  if (event.target === bidForm) { 
+    
+    await placeBid()
+  }
+  if (auctionForm) {
+    event.preventDefault();
+    await createListing();
   }
 });
  

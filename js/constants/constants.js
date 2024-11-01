@@ -14,6 +14,7 @@ export const API_Listings = Base + Auction + Listings;
 export const API_Profiles = Base  + Auction + Profiles;
 export const API_Search = Base + Auction + Listings + Search;
 export const API_GetKey = Base + Auth + Key;
+export const API_PostBid = Base + Auction + Listings;
 
 
 export function save(key, value) {

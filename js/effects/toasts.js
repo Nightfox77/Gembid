@@ -2,7 +2,7 @@
 const toast = document.querySelector(".toastalert");
 const toastMessage = document.querySelector(".message");
 
-export function showSuccessToast(message) {
+export async function showSuccessToast(message) {
     toast.style.display = "flex";
     toastMessage.textContent = message;
     toast.classList.add("success");
@@ -14,7 +14,7 @@ export function showSuccessToast(message) {
       
     
 } 
-export function showErrorToast(message) {
+export async function showErrorToast(message) {
     toast.style.display = "flex";
     toastMessage.textContent = message;
     toast.classList.add("error");

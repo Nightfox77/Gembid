@@ -71,10 +71,10 @@ export async function showModal(event) {
     await addProductModal();
     let modal = document.querySelector(".modaloverlay");
     modal.innerHTML += await displaySingleListing();
+    addShowClass();
     
     
    
-    addShowClass();
     bidButtonToggle(status);
     
    
