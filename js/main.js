@@ -6,9 +6,10 @@ import { loginUser } from "./auth/login.js";
 import { fetchListings } from "./Api/getAllListings.js";
 import { placeBid } from "./Api/placeBid.js";
 import { load,save } from "./constants/constants.js";
-import { loadProfile } from "./Api/getUserProfile.js";
+import { insertUserData } from "./effects/insertUserData.js";
 import { showSuccessToast } from "./effects/toasts.js";
 import { createListing } from "./Api/createListing.js";
+import { updateAvatar } from "./Api/updateAvatar.js";
 
 
 
@@ -84,34 +85,34 @@ handleResize();
 // Registration/Login
 // Handles registration/login process 
 document.addEventListener("submit", async function(event) {
-  const registerForm = event.target.closest("#registerForm");
-  const loginForm = event.target.closest("#loginForm");
-  const bidForm = document.querySelector('.placeBid'); 
-  const auctionForm = document.querySelector("#auctionForm");
 
+  event.preventDefault();
+  const targetForm = event.target;
 
-  if (registerForm) {
-    event.preventDefault();
-      
-      
-      await registerUser();
-  }
+  if (targetForm.closest("#registerForm")) {
+    await registerUser();
+}
 
-  if (loginForm) {
-    event.preventDefault();
-      
-      
-      await loginUser();
-      window.location.href = '/profile.html';
-  }
-  if (event.target === bidForm) { 
-    
-    await placeBid()
-  }
-  if (auctionForm) {
-    event.preventDefault();
+if (targetForm.closest("#loginForm")) {
+    await loginUser();
+    window.location.href = '/profile.html';
+}
+
+if (targetForm.classList.contains('placeBid')) {
+    await placeBid();
+}
+
+if (targetForm.closest("#auctionForm")) {
     await createListing();
-  }
+}
+
+if (targetForm.closest("#changeAvatarForm")) {
+    await updateAvatar();
+    setTimeout(() => {
+    window.location.reload();   
+  }, 1600); 
+   
+}
 });
  
 
@@ -119,13 +120,10 @@ document.addEventListener("submit", async function(event) {
     const currentPage = window.location.pathname;
     const key = load('key');
     let avatar = load('userImage');
-    if (!avatar) {
-
-    }
     const profileIconContainer = document.getElementById('profileLink');
    
     if (currentPage === '/' || currentPage === '/index.html') {
-    fetchListings()
+    fetchListings();
   
   }
     if (currentPage === '/index.html' || currentPage === '/profile.html') {
@@ -145,18 +143,11 @@ document.addEventListener("submit", async function(event) {
     }
     if (currentPage === '/profile.html' && key) {
       
-      const profileData = await loadProfile();
-      console.log(profileData);
-      const userName = document.getElementById('userName');
-      const userAvatar = document.getElementById('userImage'); 
-      userName.innerHTML = load("name");
-      userAvatar.setAttribute("src", profileData.avatar.url);
-      if(!profileData.avatar) {
-        userAvatar.setAttribute("src", "/assets/images/gembid-default-pic.jpg");
-      } 
-      const userBalance = document.getElementById('creditBalance');
-      userBalance.innerHTML += profileData.credits; 
-    }
+        await insertUserData();
+
+    
+      }
+     
 }
 window.addEventListener('load', triggerFunctionOnPageLoad);
 

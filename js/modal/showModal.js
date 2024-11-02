@@ -5,6 +5,8 @@ import { displaySingleListing } from "../Api/getSingleListing.js";
 import { save,load} from "../constants/constants.js";
 import { addProductModal } from "../effects/productDetails.js";
 import { bidButtonToggle } from "../effects/hover.js";
+import { addAvatarModal } from "../effects/avatarForm.js";
+
 
 
 async function addShowClass() {
@@ -56,6 +58,9 @@ export async function showModal(event) {
     await addAuctionModal(); 
     
     addShowClass();
+    const bidDateInput = document.getElementById("auctionDate");
+    const today = new Date().toISOString().split("T")[0];
+    bidDateInput.setAttribute("min", today);
   } 
   if (event.target.closest('.card')) {
     await removeModal(); 
@@ -63,23 +68,18 @@ export async function showModal(event) {
     const itemId = card.getAttribute("id"); 
     const status = load("status"); 
     save("id", itemId); 
-    console.log(status)
-    
-    
-    
      // Call the function to display the single listing by ID
     await addProductModal();
     let modal = document.querySelector(".modaloverlay");
     modal.innerHTML += await displaySingleListing();
     addShowClass();
-    
-    
-   
     bidButtonToggle(status);
-    
-   
-   
-}
+  }
+  if (event.target.closest('#editIcon')) {
+    await removeModal(); 
+    await addAvatarModal();
+    addShowClass();
+  }
   
     
 

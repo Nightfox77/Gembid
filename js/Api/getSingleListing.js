@@ -31,9 +31,7 @@ async function getSingleListing() {
 export async function displaySingleListing() {
     const item = await getSingleListing();
     let userImage = "";
-    let userText = item.description || ""; // Default to an empty string if `description` is null or empty
-
-    // Check for image in media; use default image if none is found
+    let userText = item.description || ""; 
     if (!item.media || item.media.length === 0) {
         userImage = `<img class="rounded img-fluid " src="./assets/images/gembid-default-pic.jpg" alt="default image" >`;
     } else {

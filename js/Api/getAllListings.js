@@ -67,13 +67,21 @@ function handleLoadMoreButton() {
 }
 
 // Event listener for Load More button
-document.getElementById('loadBtn').addEventListener('click', () => {
+
+
+
+const page = window.location.pathname;
+
+if (page === '/' || page === '/index.html') {
+    document.getElementById('loadBtn').addEventListener('click', () => {
     const totalPageCount = Math.ceil(allListings.length / itemsPerPage); // Calculate total pages
     if (currentPage < totalPageCount) {
         currentPage++; // Increment current page
         displayListings(); // Display the listings for the new page
     }
 });
+
+}
 
 
 

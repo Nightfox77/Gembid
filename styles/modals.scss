@@ -33,7 +33,7 @@
      -webkit-overflow-scrolling: touch;
 
 }
- #loginForm input, #registerForm input {
+ #loginForm input, #registerForm input, #changeAvatarForm input {
     outline: none;
     box-shadow: none;
     border-top: 0;
@@ -68,7 +68,7 @@ input:focus, input:active, textarea:focus, textarea:active {
     min-width: 300px;
     max-width: 500px;
     background-color: $sand;
-    top: 5%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
