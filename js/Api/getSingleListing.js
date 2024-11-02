@@ -35,9 +35,9 @@ export async function displaySingleListing() {
 
     // Check for image in media; use default image if none is found
     if (!item.media || item.media.length === 0) {
-        userImage = `<img class="rounded card-img-top " src="./assets/images/gembid-default-pic.jpg" alt="default image" >`;
+        userImage = `<img class="rounded img-fluid " src="./assets/images/gembid-default-pic.jpg" alt="default image" >`;
     } else {
-        userImage = `<img class="rounded card-img-top " src="${item.media[0].url}" alt="product image" onerror="this.src='./assets/images/gembid-default-pic.jpg'"  >`;
+        userImage = `<img class="rounded img-fluid" src="${item.media[0].url}" alt="product image" onerror="this.src='./assets/images/gembid-default-pic.jpg'"  >`;
     }
    
     const currentDate = new Date();
@@ -59,12 +59,12 @@ export async function displaySingleListing() {
       const bidsHTML = bidsList.length > 0
         ? bidsList.map(bid => `
             <li class="list-group-item">
-            <img class="rounded-circle card-img-top" src="${bid.bidder.avatar.url || './assets/images/gembid-default-pic.jpg'}" alt="product image" onerror="this.src='./assets/images/gembid-default-pic.jpg'"  >
+            <img class="rounded-circle " src="${bid.bidder.avatar.url || './assets/images/gembid-default-pic.jpg'}" alt="product image" onerror="this.src='./assets/images/gembid-default-pic.jpg'"  >
             <strong class="bidderName"> ${bid.bidder.name}:</strong> $ ${bid.amount} on ${new Date(bid.created).toLocaleDateString()}</li>
             `).join('')
         : `<li class="list-group-item text-muted">No bids have been placed.</li>`;
 
-    let cardHTML =  `<div class="productDetails  d-flex flex-column  m-auto  ">
+    let cardHTML =  `<div class="productDetails  d-flex flex-column    ">
         
     <div class="d-flex flex-column gap-3  ">
     <div  class="productHeader">
@@ -73,7 +73,7 @@ export async function displaySingleListing() {
             ${timeStatus}
                             
         </div>
-        <div class="productImage">
+        <div class="productImage d-flex">
             ${userImage}
         </div>
         <div  class="productDescription">
@@ -87,10 +87,10 @@ export async function displaySingleListing() {
 
                 </ol>
             </div>
-            <form  class="placeBid menuFooter d-flex flex-column text-center justify-content-center align-items-center gap-3 my-5" method="post">
-                <p class="gap-2 d-flex align-items-center">Minimum Bid <span class="minimunBid fw-bold lead"> $ ${minimumBid}</span></p>
-                <input type="number" class="bidInput w-50 text-center" placeholder="Enter Your Bid Here" min="${minimumBid}" required>
-                <button id="bidBtn" type="submit" class="btn w-50 bg-green text-white d-flex justify-content-center align-items-center gap-2 rounded-0">Place Bid<img src="/assets/images/gembid-hammer-icon.svg" width="20px" height="20px"></button>
+            <form  class="placeBid menuFooter row d-flex flex-column text-center justify-content-center align-items-center gap-3 my-5 m-auto" method="post">
+                <p class="gap-2 d-flex align-items-center justify-content-center">Minimum Bid <span class="minimunBid fw-bold lead"> $ ${minimumBid}</span></p>
+                <input type="number" class="bidInput col col-md-6 text-center" placeholder="Enter Your Bid Here" min="${minimumBid}" required>
+                <button id="bidBtn" type="submit" class="btn col col-md-6 bg-green text-white d-flex justify-content-center align-items-center gap-2 rounded-0">Place Bid<img src="/assets/images/gembid-hammer-icon.svg" width="20px" height="20px"></button>
             </form>
             </div>
                      `;

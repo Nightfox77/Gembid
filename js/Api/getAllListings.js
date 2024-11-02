@@ -3,111 +3,76 @@ import { API_Listings } from "../constants/constants.js";
 
 
 
+let allListings = []; // Store all fetched listings
+let currentPage = 1; // Current page we are on
+const itemsPerPage = 10; // Number of items per page
+let totalPageCount = 0; // Total pages available from the API
 
-
-let currentPage = 1; // Keeps track of the current page
-const limit = 10; // Number of cards to load per page
-let totalItems = 0; // Total number of items available (optional for your use case)
-
-// Function to construct the API URL with query parameters
-function constructApiUrl(sort, sortOrder, active) {
-    const url = new URL(API_Listings); // Base URL
-    url.searchParams.append('limit', limit); // Set the limit
-    url.searchParams.append('page', currentPage); // Use the current page
-
-    if (sort) {
-        url.searchParams.append('sort', sort); // Append sort parameter if provided
-    }
-    
-    if (sortOrder) {
-        url.searchParams.append('sortOrder', sortOrder); // Append sort order if provided
-    }
-
-    if (active) {
-        url.searchParams.append('active', active); // Append active status if provided
-    }
-
-    return url.toString(); // Return the constructed URL as a string
-}
-
-// Function to fetch all listings with optional query parameters
-async function getAllListings(sort, sortOrder, active) {
-    const url = constructApiUrl(sort, sortOrder, active); // Construct URL with query parameters
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-          
-        },
-    });
-
-    if (!response.ok) {
-        throw new Error(`Error fetching listings: ${response.status}`);
-    }
-
-    const items = await response.json();
-    console.log("API Response:", items); // Log the response to see its structure
-    return items; // Return the fetched items directly
-}
-
-export async function displayListings(sort = '', sortOrder = '', active = '') {
-    const listingsContainer = document.getElementById("listingItemsContainer");
-
-    // Clear previous listings for the first load
-    if (currentPage === 1) {
-        listingsContainer.innerHTML = ""; // Clear container on initial load
-    }
-
-    // Fetch items for the current page
-    const items = await getAllListings(sort, sortOrder, active);
-    console.log("Fetched Items for Page:", currentPage, items);
-
-    // Check if items is an empty array
-    if (items.length === 0) {
-        console.log("No more items to load.");
-        document.getElementById('loadBtn').style.display = 'none'; // Hide load button if no more items
-        return; // Exit if there are no more items
-    }
-
-    // Load items into the container using a for...of loop
-    for (const item of items.data) {
-        let userImage = "";
-        let userText = item.description || ""; // Default to an empty string if `description` is null or empty
-
-        // Check for image in media; use default image if none is found
-        if (!item.media || item.media.length === 0) {
-            userImage = `<img class="rounded card-img-top" src="./assets/images/gembid-default-pic.jpg" alt="default image">`;
-        } else {
-            userImage = `<img class="rounded card-img-top" src="${item.media[0].url}" alt="product image" onerror="this.src='./assets/images/gembid-default-pic.jpg'">`;
-        }
-
-        // Generate HTML for each card and append it to the container
-        const cardHTML = await smallCard({
-            ...item,
-            userImage,
-            userText
+// Function to fetch listings from the API
+export async function fetchListings(page = 1) {
+    try {
+        const response = await fetch(`${API_Listings}?page=${page}&limit=100&sortOrder=asc&_active=true`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
         });
 
-        listingsContainer.innerHTML += cardHTML; // Append each card's HTML to the container
-    }
+        if (!response.ok) {
+            throw new Error(`Error fetching listings: ${response.status}`);
+        }
 
-    // Update the page number for the next batch
-    currentPage++; // Increment the page number for the next request
+        const result = await response.json();
+        const data = result.data;
+        
+        // Append new items to the list
+        allListings = allListings.concat(data);
+        console.log(allListings) // Concatenate new listings
+        totalPageCount = result.meta.pageCount; // Update total page count from metadata
 
-    // Optionally, you can control the visibility of the "Load More" button based on the number of items returned
-    if (items.length < limit) {
-        // If the number of items returned is less than the limit, hide the button
-        document.getElementById('loadBtn').style.display = 'none';
-        console.log("No more items to load.");
-    } else {
-        // Otherwise, show the load button
-        document.getElementById('loadBtn').style.display = 'block';
+        displayListings(); // Display the fetched listings
+        handleLoadMoreButton();
+    } catch (error) {
+        console.error("Error fetching listings:", error);
     }
 }
 
-// Attach event listener to the "Load More" button
+// Function to display listings
+async function displayListings() {
+    const listingsContainer = document.getElementById("listingItemsContainer");
+    listingsContainer.innerHTML = ""; // Clear previous listings
+
+    const startIndex = (currentPage - 1) * itemsPerPage; // Calculate start index
+    const currentItems = allListings.slice(startIndex, startIndex + itemsPerPage); // Get items for the current page
+  
+    const cardPromises = currentItems.map(async (item) => {
+        // Await the result from smallCard and return the HTML
+        return smallCard({ ...item});
+    });
+
+    // Resolve all promises and join the HTML together
+    const cardsHTML = await Promise.all(cardPromises);
+    listingsContainer.innerHTML += cardsHTML.join(""); // Append all cards' HTML to the container
+
+}
+
+// Function to handle Load More button visibility
+function handleLoadMoreButton() {
+    const loadMoreButton = document.getElementById('loadBtn');
+    if (currentPage >= totalPageCount) {
+        loadMoreButton.style.display = 'none'; // Hide button if no more items to load
+    } else {
+        loadMoreButton.style.display = 'block'; // Show button if more items available
+    }
+}
+
+// Event listener for Load More button
 document.getElementById('loadBtn').addEventListener('click', () => {
-    displayListings(); // Call displayListings to load the next page
+    const totalPageCount = Math.ceil(allListings.length / itemsPerPage); // Calculate total pages
+    if (currentPage < totalPageCount) {
+        currentPage++; // Increment current page
+        displayListings(); // Display the listings for the new page
+    }
 });
 
 

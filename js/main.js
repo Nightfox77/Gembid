@@ -3,7 +3,7 @@ import { initIconToggle, removeIconToggle } from "./effects/footerMenu.js";
 import { showModal} from "./modal/showModal.js";
 import { registerUser } from "./auth/register.js";
 import { loginUser } from "./auth/login.js";
-import { displayListings } from "./Api/getAllListings.js";
+import { fetchListings } from "./Api/getAllListings.js";
 import { placeBid } from "./Api/placeBid.js";
 import { load,save } from "./constants/constants.js";
 import { loadProfile } from "./Api/getUserProfile.js";
@@ -125,8 +125,8 @@ document.addEventListener("submit", async function(event) {
     const profileIconContainer = document.getElementById('profileLink');
    
     if (currentPage === '/' || currentPage === '/index.html') {
-      
-      await displayListings();
+    fetchListings()
+  
   }
     if (currentPage === '/index.html' || currentPage === '/profile.html') {
       if (key && avatar) {
