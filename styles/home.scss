@@ -86,7 +86,7 @@ header {
        
     }
 }
-#listingItemsContainer .card {
+#listingItemsContainer .card, #activesCardContainer .card {
     width: 100%;
     max-width: 300px; 
     img {

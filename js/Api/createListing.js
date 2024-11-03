@@ -1,6 +1,7 @@
 import { showErrorToast, showSuccessToast } from "../effects/toasts.js";
 import { load } from "../constants/constants.js";
 import { API_Listings } from "../constants/constants.js";
+import { removeModal } from "../effects/mobilemenu.js";
 
 
 export async function createListing() {
@@ -30,7 +31,9 @@ try {
     });
 
     if (response.ok) {
-           showSuccessToast("Your listing is now online")
+        
+        await removeModal();
+        showSuccessToast("Your listing is now online")
         
        
         

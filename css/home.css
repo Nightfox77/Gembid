@@ -67,7 +67,7 @@ input:focus, input:active, textarea:focus, textarea:active {
   min-width: 300px;
   max-width: 500px;
   background-color: #F9F8F6;
-  top: 15%;
+  top: 100px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -277,18 +277,18 @@ header #closeIcon {
   border-color: #FFA944;
 }
 
-#listingItemsContainer .card {
+#listingItemsContainer .card, #activesCardContainer .card {
   width: 100%;
   max-width: 300px;
 }
-#listingItemsContainer .card img {
+#listingItemsContainer .card img, #activesCardContainer .card img {
   object-fit: cover;
   height: 200px;
 }
-#listingItemsContainer .card .card-title {
+#listingItemsContainer .card .card-title, #activesCardContainer .card .card-title {
   height: 50px;
 }
-#listingItemsContainer .card .card-text {
+#listingItemsContainer .card .card-text, #activesCardContainer .card .card-text {
   max-height: 100px;
   overflow: hidden;
 }

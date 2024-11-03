@@ -10,6 +10,7 @@ import { insertUserData } from "./effects/insertUserData.js";
 import { showSuccessToast } from "./effects/toasts.js";
 import { createListing } from "./Api/createListing.js";
 import { updateAvatar } from "./Api/updateAvatar.js";
+import { getProfileListings } from "./Api/getListingsByProfile.js";
 
 
 
@@ -43,10 +44,11 @@ document.addEventListener('click', async function (event) {
     const status = load("status");
     if(status === "logged in") {
       localStorage.clear();
-      await showSuccessToast('Your now logged out');
-      setTimeout(() => {
-        window.location.href = '/index.html';
-    }, 2000); 
+     
+      
+      window.location.href = '/index.html';
+    
+     await showSuccessToast('Your now logged out');
     }
   }
   if (event.target.id === 'bidBtn') {
@@ -144,6 +146,7 @@ if (targetForm.closest("#changeAvatarForm")) {
     if (currentPage === '/profile.html' && key) {
       
         await insertUserData();
+        await getProfileListings();
 
     
       }

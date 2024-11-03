@@ -1,3 +1,7 @@
+
+ 
+ 
+ 
  const Base = `https://v2.api.noroff.dev`;
  const Auth = `/auth`;
  const Login =  `/login`;
@@ -15,6 +19,7 @@ export const API_Profiles = Base  + Auction + Profiles;
 export const API_Search = Base + Auction + Listings + Search;
 export const API_GetKey = Base + Auth + Key;
 export const API_PostBid = Base + Auction + Listings;
+export const API_ListingsByProfile = Base + Auction + Profiles +`/${load("name")}`+ Listings;
 
 
 export function save(key, value) {
