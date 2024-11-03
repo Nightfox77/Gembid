@@ -10,7 +10,7 @@
     "start": "npm-run-all --parallel sass live-server"
   },
   "name": "gembid",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Noroff semester project 2",
   "main": "index.js",
   "dependencies": {
