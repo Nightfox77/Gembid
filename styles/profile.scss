@@ -1,0 +1,60 @@
+.bg-green {
+    background-color: $forestgreen
+}
+.cl-green {
+    color: $forestgreen;
+}
+#profileMenu {
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    max-width: 800px;
+    
+    .btn {
+        font-size: 13px;
+        display: flex;
+        border-radius: 20px;
+        background-color: $sand;
+        width: 32%;
+        max-width: 200px;
+        font-weight: bold;
+        justify-content: center;
+    }
+    .active {
+        background-color: $forestgreen;
+        color: white;
+    }
+}
+#profileInfo {
+    min-width: 300px; 
+    max-width: 900px;
+    flex-direction: column;
+
+    #profileInfoContainer {
+    background-color: $sand;
+   
+    .userName span  {
+        color: $forestgreen;
+        font-weight: 600;
+    }
+    #editIcon {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        
+        
+    }
+} 
+}
+#addCredits, #createAuction {
+    background-color: $brightorange;
+}
+#addAuctionContainer {
+    background-image: 
+        linear-gradient(to right, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.5)), 
+        url('/assets/images/gembid-addauction-image.jpg'); 
+    background-size: cover;
+    background-position: center;
+    min-height: 350px;   
+
+}

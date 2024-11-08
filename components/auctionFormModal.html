@@ -1,0 +1,41 @@
+<div  class="modaloverlay bg-white  d-flex flex-column  " >
+    <div class="iconContainer d-flex align-items-end justify-content-end m-5 mb-0">
+        <span  class="material-symbols-outlined d-flex fs-1 closeIcon">close</span> 
+    </div>
+  
+    <form id="auctionForm" class="text-center flex-column gap-4 m-auto " method="post">
+        
+        <div class="d-flex flex-column gap-5 ">
+            <div class="form-group  text-start d-flex flex-column gap-2">
+                <label for="auctionTitle" class="lead">Title</label>
+                <small>Use terms that your buyers would use when searching for this item.</small>
+                <input type="text" id="auctionTitle" name="title" class="form-control"  required>
+            </div>
+            <div class="form-group text-start d-flex flex-column gap-2">
+               <label for="auctionDescription" class="lead">Description</label>
+               <small>Create a detailed description of the item.</small>
+               <textarea id="auctionDescription" name="auctionDescription" class="form-control" rows="6" required></textarea>
+            </div>
+            <div class="form-group text-start d-flex flex-column gap-2">
+                <label for="photoUrl" class="lead">Add photo</label>
+                <small>Enter a url that shows an image of your product</small>
+                <input type="url" id="auctionPhoto" name="photo" class="form-control" required>
+             </div>
+             <div class="form-group  text-start d-flex flex-column gap-2">
+                <label for="auctionDate">End of the auction</label>
+                <div class="d-flex align-items-center">
+                    <small class="col-6">Set a day for the auction to end.</small>
+                    <input class=" form-control" type="date" name="date" id="auctionDate" min=""  required>
+                </div>
+             </div>
+
+        </div>
+        <div class="menuFooter d-flex flex-column text-center justify-content-center align-items-center my-5 gap-2">
+            <button id="auctionBtn" type="submit" class="btn w-50 bg-green text-white rounded-0">Create Auction</button>
+        </div>
+    </form>
+   
+   
+    
+
+</div>

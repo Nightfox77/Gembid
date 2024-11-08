@@ -1,0 +1,15 @@
+<div  class="modaloverlay bg-white  d-flex flex-column  " >
+    <div class="iconContainer d-flex align-items-end justify-content-end m-5 mb-0">
+        <span  class="material-symbols-outlined d-flex fs-1 closeIcon">close</span> 
+    </div>
+    <form id="changeAvatarForm" class=" text-center flex-column gap-4 m-auto">
+        <div class="form-group text-start d-flex flex-column gap-2">
+            <label for="photoUrl" class="lead m-auto mb-5">Change your profile picture</label>
+            
+            <input type="url" id="photoUrl" name="photo" class="form-control" placeholder="Enter a url that shows an image" required>
+        </div>
+        <div class="menuFooter d-flex flex-column text-center justify-content-center align-items-center my-5 gap-2">
+            <button id="submitAvatarBtn" type="submit" class="btn w-50 bg-green text-white rounded-0">Update picture</button>
+        </div>
+    </form>
+</div>

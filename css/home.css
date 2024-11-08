@@ -1,0 +1,371 @@
+.modaloverlay {
+  font-family: Lato;
+  position: fixed;
+  transform: translateX(100%);
+  z-index: 1000;
+  transition: 0.7s all ease-in-out;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+}
+.modaloverlay .nav-link {
+  color: #323232;
+}
+.modaloverlay .nav-link.orange {
+  color: #FFA944;
+}
+.modaloverlay #loginForm {
+  display: flex;
+}
+.modaloverlay #registerForm {
+  display: none;
+}
+.modaloverlay form {
+  width: 90%;
+}
+
+.modaloverlay.show {
+  transform: translateX(0%);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#loginForm input, #registerForm input, #changeAvatarForm input {
+  outline: none;
+  box-shadow: none;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+}
+
+input, textarea {
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: #323232;
+}
+
+input:focus, input:active, textarea:focus, textarea:active {
+  border-color: #FFA944 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.bidInput {
+  border: none;
+  background-color: #F0F1F5;
+  padding: 6px;
+}
+
+.toastalert {
+  position: fixed;
+  display: none;
+  border: 2px solid;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  min-width: 300px;
+  max-width: 500px;
+  background-color: #F9F8F6;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+}
+
+.success {
+  border-color: green;
+}
+
+.error {
+  border-color: red;
+}
+
+.list-group-item {
+  display: flex;
+  gap: 5px;
+}
+.list-group-item::before {
+  width: 20px;
+  margin-right: 5px;
+  content: counter(list-item) ". ";
+  counter-increment: list-item;
+}
+.list-group-item img {
+  width: 24px;
+  height: 24px;
+  border-radius: 20px;
+}
+
+.productImage img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+#bidBtn {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+#shopBtn {
+  background-color: #FFA944;
+}
+
+#shopBtn:hover {
+  background-color: #f4a141;
+}
+
+#loadBtn, #upBtn {
+  border-color: #FFA944;
+  color: #FFA944;
+}
+
+#loadBtn:hover, #upBtn:hover {
+  border-color: #f4a141;
+  color: #f4a141;
+}
+
+#upBtn {
+  display: none;
+}
+
+.bg-green {
+  background-color: #195552;
+}
+
+.cl-green {
+  color: #195552;
+}
+
+#profileMenu {
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  max-width: 800px;
+}
+#profileMenu .btn {
+  font-size: 13px;
+  display: flex;
+  border-radius: 20px;
+  background-color: #F9F8F6;
+  width: 32%;
+  max-width: 200px;
+  font-weight: bold;
+  justify-content: center;
+}
+#profileMenu .active {
+  background-color: #195552;
+  color: white;
+}
+
+#profileInfo {
+  min-width: 300px;
+  max-width: 900px;
+  flex-direction: column;
+}
+#profileInfo #profileInfoContainer {
+  background-color: #F9F8F6;
+}
+#profileInfo #profileInfoContainer .userName span {
+  color: #195552;
+  font-weight: 600;
+}
+#profileInfo #profileInfoContainer #editIcon {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+}
+
+#addCredits, #createAuction {
+  background-color: #FFA944;
+}
+
+#addAuctionContainer {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.5)), url("/assets/images/gembid-addauction-image.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 350px;
+}
+
+h1, h3, h4, h5, h6 {
+  font-family: SourceSerif4;
+  color: #323232;
+}
+
+h2, .descriptiontext, a, p, .btn {
+  font-family: Lato;
+  color: #323232;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.fs-7 {
+  font-size: 13px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a, .addIcon, span {
+  cursor: pointer;
+}
+
+.orange {
+  color: #FFA944;
+}
+
+header {
+  background-color: #195552;
+  position: relative;
+}
+header #closeIcon {
+  display: none;
+}
+
+.backgroundblur {
+  display: none;
+  position: absolute;
+  min-height: 1000vh;
+  width: 100vw;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.12);
+  z-index: 1000;
+}
+
+.mobile-menu-icons {
+  display: flex;
+}
+
+.desktopNav {
+  display: none;
+}
+
+.hero {
+  background-image: url(/assets/images/gembid-hero-background-mobile-2.jpg);
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 70vh;
+  max-width: 100%;
+}
+
+#searchbar span {
+  border-top-left-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+  border-right: 0;
+}
+#searchbar .form-input {
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  border-left: 0;
+}
+#searchbar .input-group {
+  transition: border-color 0.2s ease;
+}
+#searchbar .input-group:focus-within span, #searchbar .input-group:focus-within input {
+  border-color: #FFA944;
+}
+
+#listingItemsContainer .card, #activesCardContainer .card {
+  width: 100%;
+  max-width: 300px;
+}
+#listingItemsContainer .card img, #activesCardContainer .card img {
+  object-fit: cover;
+  height: 200px;
+}
+#listingItemsContainer .card .card-title, #activesCardContainer .card .card-title {
+  height: 50px;
+}
+#listingItemsContainer .card .card-text, #activesCardContainer .card .card-text {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+#banner {
+  flex-direction: column;
+}
+#banner #bannerTextContainer {
+  background-color: #195552;
+  height: 200px;
+}
+#banner #bannerImageContainer img {
+  object-fit: cover;
+  max-height: 200px;
+}
+
+#carouselGallery {
+  padding-left: 10px;
+  overflow-x: auto;
+}
+#carouselGallery .card img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
+footer {
+  flex-direction: column;
+  gap: 10px;
+  background-color: #F9F8F6;
+  padding: 20px 40px;
+}
+footer .listItems {
+  display: none;
+  padding-top: 10px;
+}
+footer .listItems li {
+  color: #5B5E62;
+  font-size: 13px;
+}
+
+@media screen and (min-width: 1100px) {
+  .desktopNav {
+    display: block;
+  }
+  .mobile-menu-icons {
+    display: none;
+  }
+  .hero {
+    background-image: url(/assets/images/gembid-hero-background.jpg);
+    background-position: bottom center;
+    height: 90vh;
+  }
+  footer {
+    flex-direction: row;
+    margin: auto;
+    gap: 20px;
+  }
+  footer .listItems {
+    display: block;
+  }
+  #profileInfo {
+    flex-direction: row;
+  }
+  #profileInfo #balance {
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 800px) {
+  .modaloverlay {
+    width: 600px;
+    transform: translateX(150%);
+    left: 50%;
+  }
+  .modaloverlay.show {
+    transform: translateX(-50%);
+  }
+}
+
+/*# sourceMappingURL=home.css.map */

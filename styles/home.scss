@@ -1,0 +1,138 @@
+@import 'colors';
+@import 'modals';
+@import 'buttons';
+@import 'profile';
+
+
+h1, h3, h4, h5, h6 {
+    font-family: SourceSerif4;
+    color: $darkgrey;
+}
+h2, .descriptiontext, a, p, .btn {
+    font-family: Lato;
+    color: $darkgrey;
+    text-decoration: none;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+.fs-7 {
+    font-size: 13px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+a, .addIcon, span {
+    cursor: pointer;
+}
+.orange {
+    color: $brightorange;
+}
+header {
+    background-color: $forestgreen;
+    position: relative;
+    
+    #closeIcon {
+        display: none;
+    }
+}
+.backgroundblur {
+    display: none;
+    position: absolute;
+    min-height: 1000vh;
+    width: 100vw;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+    
+}
+.mobile-menu-icons {
+    display: flex;
+}
+.desktopNav {
+    display: none;
+}
+.hero {
+    background-image: url(/assets/images/gembid-hero-background-mobile-2.jpg);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 70vh;
+    max-width: 100%;
+    
+}
+#searchbar  {
+    span {
+        border-top-left-radius: 9999px;
+        border-bottom-left-radius: 9999px;
+        border-right: 0;
+    }
+    .form-input {
+        border-top-right-radius: 9999px;
+        border-bottom-right-radius: 9999px;
+        border-left: 0;
+    }
+    .input-group {
+        transition: border-color 0.2s ease; 
+    }
+    .input-group:focus-within span, .input-group:focus-within input {
+        border-color: $brightorange; 
+       
+    }
+}
+#listingItemsContainer .card, #activesCardContainer .card {
+    width: 100%;
+    max-width: 300px; 
+    img {
+        object-fit: cover;
+        height: 200px;
+    }
+    .card-title {
+        height: 50px;
+    }
+    .card-text {
+        max-height: 100px;
+        overflow: hidden;
+    }
+}
+#banner {
+    flex-direction: column;
+    #bannerTextContainer {
+        background-color: $forestgreen;
+        height: 200px;
+    }
+    #bannerImageContainer img {
+        object-fit: cover;
+        max-height: 200px;
+    }
+}
+#carouselGallery {
+    padding-left: 10px;
+    overflow-x: auto;
+    .card img {
+        max-height: 500px;
+        object-fit: cover;
+    }
+}
+footer {
+    flex-direction: column;
+    gap: 10px;
+    background-color: $sand;
+    padding: 20px 40px;
+    .listItems {
+        display: none;
+        padding-top: 10px;
+    }
+    .listItems li {
+        color: $mediumgrey;
+        font-size: 13px;
+    }
+}
+
+@import 'media';
