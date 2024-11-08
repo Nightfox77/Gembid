@@ -2,14 +2,14 @@ import { smallCard } from "../../components/smallCard.js";
 import { API_Listings } from "../constants/constants.js";
 
 let allListings = [];
-const itemsPerPage = 10; // Number of items to display at a time
-let displayedItemsCount = 0; // How many items are currently displayed
-let fetchCount = 1; // Tracks the number of API calls (each fetching a batch)
-let totalCount = 0; // Total number of items fetched from API
+const itemsPerPage = 10; 
+let displayedItemsCount = 0; 
+let fetchCount = 1; 
+let totalCount = 0; 
 
-let filterType = 'active'; // Default filter type ('active' or 'ended')
+let filterType = 'active';
 
-// Function to fetch listings based on filter type
+
 export async function fetchListings() {
     try {
         const response = await fetch(`${API_Listings}?page=${fetchCount}&limit=100&sortOrder=asc&_active=${filterType === 'active'}`, {
@@ -25,12 +25,12 @@ export async function fetchListings() {
 
         const result = await response.json();
         const data = result.data;
-        console.log(data)
-        allListings = allListings.concat(data); // Concatenate new listings
-        totalCount = result.meta.totalCount; // Set total count from the API response
-        fetchCount++; // Increment fetch counter for the next batch
+       
+        allListings = allListings.concat(data); 
+        totalCount = result.meta.totalCount; 
+        fetchCount++; 
 
-        displayListings(); // Display the fetched listings
+        displayListings(); 
         handleLoadMoreButton();
     } catch (error) {
         console.error("Error fetching listings:", error);
@@ -46,7 +46,7 @@ async function displayListings() {
     const cardsHTML = await Promise.all(cardPromises);
     listingsContainer.innerHTML += cardsHTML.join("");
 
-    displayedItemsCount += currentItems.length; // Update the count of displayed items
+    displayedItemsCount += currentItems.length; // Update count of displayed items
 }
 
 // Function to handle Load More button visibility and fetching next batch

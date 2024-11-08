@@ -17,7 +17,7 @@ export async function createListing() {
 
             endsAt: document.querySelector("#auctionDate").value,
         }
-        console.log(formData)
+        
 try {
     const response = await fetch(API_Listings, {
        
@@ -39,7 +39,8 @@ try {
         
     } 
 } catch (error) {
-    showErrorToast("error");
+    await removeModal();
+    showErrorToast("An error has accured, please try again");
 } 
     
 }

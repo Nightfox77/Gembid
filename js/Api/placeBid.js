@@ -28,11 +28,13 @@ export async function placeBid() {
         
         const result = await response.json();
       if(result.ok) {
+        removeModal();
         showSuccessToast("Bid has been placed");
       }
        
     } catch (error) {
-        console.log('Error fetching posts:', error);
+        removeModal();
+        await showErrorToast("An errror has occured, please try again");
        
     }
     }
