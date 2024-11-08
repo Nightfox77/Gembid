@@ -26,9 +26,11 @@ export async function placeBid() {
             
         });
         
-        const result = await response.json();
-      if(result.ok) {
-        removeModal();
+       
+        
+      if(response.ok) {
+        
+        await removeModal();
         showSuccessToast("Bid has been placed");
       }
        
