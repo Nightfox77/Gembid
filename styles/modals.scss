@@ -59,7 +59,7 @@ input:focus, input:active, textarea:focus, textarea:active {
     padding:  6px;
 }
 .toastalert {
-    position: absolute;
+    position: fixed;
     display: none;
     border: 2px solid;
     justify-content: center;
@@ -70,7 +70,7 @@ input:focus, input:active, textarea:focus, textarea:active {
     background-color: $sand;
     top: 100px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     z-index: 2000;
 }
  .success {
