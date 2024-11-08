@@ -20,7 +20,6 @@ async function getSingleListing() {
 
         const result = await response.json();
         const data = result.data;
-        console.log(data);
         return data;
     } catch (error) {
         console.log('Error fetching posts:', error);
@@ -30,6 +29,7 @@ async function getSingleListing() {
 
 export async function displaySingleListing() {
     const item = await getSingleListing();
+    save("seller", item.seller.name)
     let userImage = "";
     let userText = item.description || ""; 
     if (!item.media || item.media.length === 0) {
@@ -50,17 +50,30 @@ export async function displaySingleListing() {
     } 
 
 
+    const status = load("status"); 
 
-    const bidsList = item.bids || [];
-    const highestBid = bidsList.length > 0 ? bidsList[bidsList.length - 1].amount : 0;
-    const minimumBid = highestBid + 1;
-      const bidsHTML = bidsList.length > 0
+const bidsList = item.bids || [];
+const highestBid = bidsList.length > 0 ? bidsList[bidsList.length - 1].amount : 0;
+const minimumBid = highestBid + 1;
+
+
+const bidsHTML = !status
+    ? `<li class="list-group-item text-muted">Please log in to see the bids.</li>` 
+    : bidsList.length > 0
         ? bidsList.map(bid => `
             <li class="list-group-item">
-            <img class="rounded-circle " src="${bid.bidder.avatar.url || './assets/images/gembid-default-pic.jpg'}" alt="product image" onerror="this.src='./assets/images/gembid-default-pic.jpg'"  >
-            <strong class="bidderName"> ${bid.bidder.name}:</strong> $ ${bid.amount} on ${new Date(bid.created).toLocaleDateString()}</li>
-            `).join('')
-        : `<li class="list-group-item text-muted">No bids have been placed.</li>`;
+                <img class="rounded-circle" 
+                     src="${bid.bidder.avatar.url || './assets/images/gembid-default-pic.jpg'}" 
+                     alt="product image" 
+                     onerror="this.src='./assets/images/gembid-default-pic.jpg'" />
+                <strong class="bidderName">${bid.bidder.name}:</strong> 
+                $${bid.amount} on ${new Date(bid.created).toLocaleDateString()}
+            </li>
+          `).join('')
+        : `<li class="list-group-item text-muted">No bids have been placed.</li>`; 
+
+
+
 
     let cardHTML =  `<div class="productDetails  d-flex flex-column    ">
         

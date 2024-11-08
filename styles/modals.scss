@@ -71,6 +71,7 @@ input:focus, input:active, textarea:focus, textarea:active {
     top: 100px;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 2000;
 }
  .success {
         border-color: green;

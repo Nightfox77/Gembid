@@ -1,10 +1,17 @@
 import { load, API_PostBid } from "../constants/constants.js";
-import { showSuccessToast } from "../effects/toasts.js";
+import { showSuccessToast, showErrorToast } from "../effects/toasts.js";
+import { removeModal } from "../effects/mobilemenu.js";
 
 
 export async function placeBid() {
     const amount = load("amount");
-    
+    const seller = load("seller");
+    const name = load("name");
+    if (seller===name) {
+        removeModal();
+        await showErrorToast("Ups!! You can't bid on your own listing.");
+        return
+    } else {
     try {
         
         const response = await fetch(`${API_PostBid}/${load("id")}/bids`, {
@@ -27,5 +34,6 @@ export async function placeBid() {
     } catch (error) {
         console.log('Error fetching posts:', error);
        
+    }
     }
 }

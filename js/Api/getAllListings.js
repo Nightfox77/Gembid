@@ -1,17 +1,18 @@
 import { smallCard } from "../../components/smallCard.js";
 import { API_Listings } from "../constants/constants.js";
 
-let allListings = []; // Store all fetched listings
-let currentPage = 1; // Current page within the current 100-item set
-const itemsPerPage = 10; // Number of items per page
-let apiPage = 1; // Page to request from API, initially 1
-let totalPageCount = 0; // Total pages available from the API
-let displayedItemsCount = 0; // Track the number of items already displayed
+let allListings = [];
+const itemsPerPage = 10; // Number of items to display at a time
+let displayedItemsCount = 0; // How many items are currently displayed
+let fetchCount = 1; // Tracks the number of API calls (each fetching a batch)
+let totalCount = 0; // Total number of items fetched from API
 
-// Function to fetch listings from the API
+let filterType = 'active'; // Default filter type ('active' or 'ended')
+
+// Function to fetch listings based on filter type
 export async function fetchListings() {
     try {
-        const response = await fetch(`${API_Listings}?page=${apiPage}&limit=100&sortOrder=asc&_active=true`, {
+        const response = await fetch(`${API_Listings}?page=${fetchCount}&limit=100&sortOrder=asc&_active=${filterType === 'active'}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -24,11 +25,10 @@ export async function fetchListings() {
 
         const result = await response.json();
         const data = result.data;
-        
-        // Append new items to the allListings array
-        allListings = allListings.concat(data);
-        totalPageCount = result.meta.pageCount; // Update total pages from metadata
-        console.log(allListings); // Log fetched listings for debugging
+        console.log(data)
+        allListings = allListings.concat(data); // Concatenate new listings
+        totalCount = result.meta.totalCount; // Set total count from the API response
+        fetchCount++; // Increment fetch counter for the next batch
 
         displayListings(); // Display the fetched listings
         handleLoadMoreButton();
@@ -40,44 +40,37 @@ export async function fetchListings() {
 // Function to display listings
 async function displayListings() {
     const listingsContainer = document.getElementById("listingItemsContainer");
-
-    // Get the new set of items based on how many have already been displayed
     const currentItems = allListings.slice(displayedItemsCount, displayedItemsCount + itemsPerPage);
-  
-    const cardPromises = currentItems.map(async (item) => {
-        return smallCard({ ...item });
-    });
 
-    // Resolve all promises and join the HTML together
+    const cardPromises = currentItems.map(async (item) => smallCard({ ...item }));
     const cardsHTML = await Promise.all(cardPromises);
-    listingsContainer.innerHTML += cardsHTML.join(""); // Append new cards to the container
+    listingsContainer.innerHTML += cardsHTML.join("");
 
     displayedItemsCount += currentItems.length; // Update the count of displayed items
 }
 
-// Function to handle Load More button visibility and fetching the next batch
+// Function to handle Load More button visibility and fetching next batch
 function handleLoadMoreButton() {
     const loadMoreButton = document.getElementById('loadBtn');
-    if (displayedItemsCount >= allListings.length) {
-        // Check if we need to load more from the API
-        if (apiPage < totalPageCount) {
-            apiPage++; // Increment API page for the next batch
-            currentPage = 1; // Reset local pagination for the new batch
-            fetchListings(); // Fetch a new batch of 100 items
-        } else {
-            loadMoreButton.style.display = 'none'; // Hide button if no more items to load
-        }
+    // Only show the button if we still have items to display
+    if (displayedItemsCount < totalCount) {
+        loadMoreButton.style.display = 'block'; // Show button if more items available
+    } else {
+        loadMoreButton.style.display = 'none'; // Hide button if no more items to load
+    }
+}
+function handleLoadMore() {
+    if (displayedItemsCount < allListings.length) {
+        displayListings(); // Display the next set of items within the current batch
+    } else {
+        fetchListings(); // Fetch the next batch if needed
     }
 }
 
-// Event listener for Load More button
-const page = window.location.pathname;
-if (page === '/' || page === '/index.html') {
-    document.getElementById('loadBtn').addEventListener('click', () => {
-        if (displayedItemsCount < allListings.length) {
-            displayListings(); // Display the next set of items within the current batch
-        } else {
-            handleLoadMoreButton(); // Fetch the next batch if needed
-        }
-    });
+// Check if the current page is index.html, and add the event listener for Load More button
+if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
+    const loadMoreButton = document.getElementById('loadBtn');
+    if (loadMoreButton) { // Ensure the button exists
+        loadMoreButton.addEventListener('click', handleLoadMore);
+    }
 }

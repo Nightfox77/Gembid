@@ -11,6 +11,7 @@ import { showSuccessToast } from "./effects/toasts.js";
 import { createListing } from "./Api/createListing.js";
 import { updateAvatar } from "./Api/updateAvatar.js";
 import { getProfileListings } from "./Api/getListingsByProfile.js";
+import { searchApi } from "./Api/search.js";
 
 
 
@@ -40,7 +41,7 @@ document.addEventListener('click', async function (event) {
     loginForm.style.display = 'none';
     registerForm.style.display = 'flex';
   }
-  if ( event.target.id === 'logout') {
+  if (event.target.id === 'logout') {
     const status = load("status");
     if(status === "logged in") {
       localStorage.clear();
@@ -117,32 +118,36 @@ if (targetForm.closest("#changeAvatarForm")) {
 }
 });
  
-
+const currentPage = window.location.pathname;
   async function triggerFunctionOnPageLoad() {
-    const currentPage = window.location.pathname;
+    
     const key = load('key');
     let avatar = load('userImage');
     const profileIconContainer = document.getElementById('profileLink');
    
     if (currentPage === '/' || currentPage === '/index.html') {
     fetchListings();
+   
   
   }
-    if (currentPage === '/index.html' || currentPage === '/profile.html') {
-      if (key && avatar) {
-        profileIconContainer.innerHTML = '';
-        profileIconContainer.setAttribute("href", "/profile.html");
-        profileIconContainer.innerHTML += `<img src=${avatar} class="rounded-circle" width="24px" height="24px">`;
-      } else if (key) {
-        profileIconContainer.innerHTML = '';
-        profileIconContainer.setAttribute("href", "/profile.html");
-        profileIconContainer.innerHTML += `<img src="/assets/images/gembid-default-pic.jpg" class="rounded-circle" width="24px" height="24px">`;
-      
+    // Check if on index.html or profile.html
+if (currentPage === '/index.html' || currentPage === '/profile.html') {
+  if (profileIconContainer) { // Check that profileIconContainer exists
+      profileIconContainer.innerHTML = ''; // Clear any existing content
+
+      if (key) {
+          profileIconContainer.setAttribute("href", "/profile.html");
+
+          // Set avatar if available; otherwise, use default image
+          const imageUrl = avatar || "/assets/images/gembid-default-pic.jpg";
+          profileIconContainer.innerHTML = `<img src="${imageUrl}" class="rounded-circle" width="24px" height="24px">`;
       } else {
-        profileIconContainer.innerHTML = '';
-        profileIconContainer.innerHTML +=  `<span  class="material-symbols-outlined">account_circle</span>`;
+          // Show generic account icon for unauthenticated users
+          profileIconContainer.innerHTML = `<span class="material-symbols-outlined">account_circle</span>`;
       }
-    }
+  }
+}
+
     if (currentPage === '/profile.html' && key) {
       
         await insertUserData();
@@ -155,7 +160,16 @@ if (targetForm.closest("#changeAvatarForm")) {
 window.addEventListener('load', triggerFunctionOnPageLoad);
 
 
-  
+if (currentPage === '/' || currentPage === '/index.html') {
+  const searchField = document.getElementById("searchInput");
+
+  searchField.addEventListener("keydown", function(event) {
+  if(event.key === "Enter") {
+      save("search", searchField.value);
+      searchApi();
+  }
+})
+}
 
 
     

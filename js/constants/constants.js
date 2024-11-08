@@ -9,7 +9,7 @@
  const Auction = `/auction`;
  const Listings = `/listings`;
  const Profiles = `/profiles`;
- const Search = `/search`;
+ const Search = `/search?q=`;
  const Key = '/create-api-key';
 
 export const API_Signup = Base + Auth + Register;
